@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import {Route, Switch} from'react-router-dom';
+import {Provider} from "react-redux"
+import store from "./redux/store"
 
 //reuable items
 import Home from './pages/Home'
@@ -14,15 +16,17 @@ import Test from "./components/Test"
 function App() {
   return (
     <>
-    <Navbar />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/products" component={Products} />
-      <Route exact path="/team" component={Team} />
-      <Route exact path="/contact" component={Contact} />
-      <Route exact path="/test" component={Test} />
-    </Switch>
+    <Provider store = {store}>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/team" component={Team} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/test" component={Test} />
+      </Switch>
+    </Provider>
     </>
   );
 }

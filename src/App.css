@@ -186,6 +186,10 @@ p.subtitle {
     margin-left: -15px;
 }
 
+img.item-image {
+    width: 65px;
+}
+
 .row.menu {
     background-color: lightgray;
     padding: 0rem 0;
@@ -206,6 +210,7 @@ p.subtitle {
     font-size: 18px;
     color: white;
     font-weight: bold;
+    margin-top: 14px;
 }
 
 .info {
@@ -221,6 +226,7 @@ p.price {
     font-size: 20px;
     color: firebrick;
     font-weight: 900;
+    margin-top: 13px;
 }
 
 @media screen and (max-width: 480px) {
@@ -247,7 +253,7 @@ p.price {
     }
 
     p.price {
-        margin-left: 10px;
+        margin-left: 28px;
     }
 
     p.info {
@@ -464,6 +470,150 @@ a.ft-social {
     }
 }
 /* footer ends  */
+
+/* about page starts  */
+.services.about {
+    background-color: aliceblue;
+}
+
+.about-top {
+    display: inline-flex;
+}
+
+h4.about-title {
+    color: burlywood;
+    margin-left: 0px;
+    font-size: 30px;
+}
+
+h6.about-banner {
+    font-size: 24px;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+.about-text {
+    font-size: 75px;
+}
+
+.about-landing-right{
+    /* background-image: url(./images/landing-about.png); */
+    height: 500px;
+    /* background-repeat: no-repeat; */
+}
+
+.landing-image {
+    margin-top: 60px;
+}
+
+.about-landing.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 650px;
+}
+
+h5.landing-subtitle {
+    margin-top: 120px;
+    color: burlywood;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+h1.landing-title {
+    text-transform: uppercase;
+    font-family: none;
+    margin-top: 15px;
+    font-weight: lighter;
+}
+
+span.landing-icon {
+    font-size: 30px;
+}
+
+p.landing-info {
+    margin-top: 50px;
+    font-style: italic;
+}
+
+h5.landing-signature {
+    margin-top: 40px;
+    font-size: 20px;
+    font-family: none;
+    color: burlywood;
+}
+
+.landing-story-main {
+    padding-top: 80px;
+}
+
+.landing-story {
+    background-color: papayawhip;
+}
+.landing-story-display.row {
+    margin-top: 60px;
+}
+
+.col-md-6.display-right {
+    text-align: left;
+    margin-top: 50px;
+}
+
+h3.display-name {
+    font-family: initial;
+    margin-bottom: 10px;
+}
+
+h4.display-role {
+    color: burlywood;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+p.display-info {
+    font-size: 20px;
+    font-style: italic;
+    font-family: inherit;
+    margin-bottom: 70px;
+}
+
+img.display-image {
+    margin-right: 75px;
+}
+
+@media screen and (max-width: 480px) {
+    img.landing-image {
+        height: 140px;
+    }
+
+    .landing-story-display.row {
+        margin-top: 60px;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    img.left-image {
+        height: 400px;
+    }
+
+    .col-md-6.display-right {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .display-img {
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+
+    img.display-image {
+        margin-right: 30px;
+        height: 86px;
+    }
+}
+
+
+/* about page ends  */
 /* tablets  */
 @media screen and (max-width: 768px) {
 
