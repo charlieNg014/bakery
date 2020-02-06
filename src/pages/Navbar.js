@@ -16,7 +16,7 @@ export default class Navbar extends Component {
     render(){
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} alt="mainlogo" style={{height: 65, width: 85}} />
                     </Link>

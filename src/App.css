@@ -621,13 +621,27 @@ img.display-image {
     width: 100%;
 }
 
+.landing-story-contact {
+    height: 525px;
+    background-color: mintcream;
+}
+
 @media screen and (max-width: 480px) {
-    .landing-story {
+    .landing-story-contact {
         height: 650px;
     }
 }
-
 /* contact ends  */
+
+/* product statrs  */
+.product-display.row {
+    margin-top: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+}
+
+/* product ends */
 /* tablets  */
 @media screen and (max-width: 768px) {
 

@@ -50,3 +50,16 @@ export const bake = [{
     price: "6.99",
     info: "desc for bake 3"
 }]; 
+
+export const bakeStore = [
+    {id: 1, type: "Bready", title: "", image: "",  recipe: "", price: "10.99"},
+    {id: 2, type: "Pinpool", title: "", image: "",  recipe: "", price: "12.99"},
+    {id: 3, type: "Deliciuex", title: "", image: "",  recipe: "", price: "20.99"},
+    {id: 4, type: "Cupke", title: "", image: "",  recipe: "", price: "6.99"},
+    {id: 5, type: "Bready", title: "", image: "",  recipe: "", price: "9.99"},
+    {id: 6, type: "Cake", title: "", image: "",  recipe: "", price: "10.99"},
+    {id: 7, type: "Pinpool", title: "", image: "",  recipe: "", price: "25.99"},
+    {id: 8, type: "Bready", title: "", image: "",  recipe: "", price: "4.99"},
+    {id: 9, type: "Deliciuex", title: "", image: "",  recipe: "", price: "9.99"},
+    {id: 10, type: "Deliciuex", title: "", image: "",  recipe: "", price: "10.99"},
+]

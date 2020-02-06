@@ -4,6 +4,7 @@ import {IoMdStarOutline} from "react-icons/io"
 import Info from "../components/Info"
 import Footer from "../components/Footer"
 import axios from "axios";
+import GoogleMaps from "../components/GoogleMaps"
 
 
 export default class Contact extends Component {
@@ -105,7 +106,7 @@ export default class Contact extends Component {
                 </div>
                 <div className="about-landing row">
                     <div className="col-md-12 about-landing-left">
-                       map goes here
+                       <GoogleMaps />
                     </div>
                 </div>
                 <div className="landing-story">
@@ -147,7 +148,7 @@ export default class Contact extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="landing-story" style={{height: 590}}>
+                <div className="landing-story-contact">
                     <div className="landing-story-main">
                         <h4 className="landing-subtitle">Contact</h4>
                         <h2 className="landing-title">Get In Touch With Us</h2>
