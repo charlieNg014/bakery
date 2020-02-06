@@ -611,9 +611,23 @@ img.display-image {
         height: 86px;
     }
 }
-
-
 /* about page ends  */
+
+/* contac starts  */
+.landing-story-display.row {
+    margin-top: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .landing-story {
+        height: 650px;
+    }
+}
+
+/* contact ends  */
 /* tablets  */
 @media screen and (max-width: 768px) {
 
