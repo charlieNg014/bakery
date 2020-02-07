@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import {bakeStore} from '../../data'
 import Title from "../Title"
 import { Link } from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {filterBakeTypes} from "../../redux"
 
-export default class ProductFilter extends Component {
+export default function ProductFilter () {
     //define state 
-    state = {
-        bakeData: bakeStore
-    }
-
-    render() {
+    
+    const [bakeData] = useState(bakeStore);
     const getUnique = (item, value) => {
         return [...new Set(item.map(item => item[value]))]
     }
@@ -28,20 +27,38 @@ export default class ProductFilter extends Component {
     })
 
     //get min and max price for bake 
-    let maxPrice = Math.max(...this.state.bakeData.map((item) => item.price));
-    let minPrice = Math.min(...this.state.bakeData.map((item) => item.price));
+    let maxPrice = Math.max(...bakeData.map((item) => item.price));
+    let minPrice = Math.min(...bakeData.map((item) => item.price));
     let price = maxPrice;
 
     //get the room with any checkbox
-    const handleChange = (event) => {
-        const target = event.target;
-        const value = target.type ==="checkbox" ? target.checked : target.value;
-        const name = event.target.name;
-
+    const handleChangeType = (event) => {
+        const value = event.target.value;
         console.log(value);
         
+        const filterBake = bakeData.filter((bakeData) => bakeData.type === value);
+        console.log(filterBake);
+
+        return filterBake;
     }
-    
+
+    //handle change the price
+    const handleChangePrice = (event) => {
+        const target = event.target;
+        const value = target.type ==="checkbox" ? target.checked : target.value;
+        // const name = event.target.name;
+
+        console.log(value);
+
+        const filterPrice = this.state.bakeData.filter((bakeData) => parseInt(bakeData.price) < value);
+        console.log(filterPrice);
+
+        return filterPrice;
+    }
+
+    //passing data from handle change to store 
+    const dispatch = useDispatch();
+
         return (
             <div className="services">
                 <div className="filter form-group">
@@ -49,7 +66,7 @@ export default class ProductFilter extends Component {
                     <ul className="filter-section">
                         <h3 className="filter-title">Categories</h3>
                         <li>
-                            <p className="filter-list" type={types} onClick={handleChange}>{types}</p>                
+                            <p className="filter-list" type={types} onClick={handleChangeType} onClick={() => dispatch(filterBakeTypes(["1"]))}>{types}</p>                
                         </li>
                         <hr className="filter-line"/>
                     </ul>
@@ -66,7 +83,7 @@ export default class ProductFilter extends Component {
                             max={maxPrice}
                             id="price"
                             value={price}
-                            onChange={handleChange}
+                            onChange={handleChangePrice}
                             className="filter-slider" 
                         />
                         <h2 style={{marginTop: 30, marginBottom: 25}}>Price: ${minPrice} - ${maxPrice}</h2>
@@ -76,4 +93,3 @@ export default class ProductFilter extends Component {
             </div>
         )
     }
-}

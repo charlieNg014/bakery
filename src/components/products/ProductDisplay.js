@@ -2,11 +2,17 @@ import React, {useState} from 'react'
 import {bakeStore} from '../../data'
 import ProductList from "./ProductList"
 import { Link } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
+import {filterBakeTypes} from "../../redux"
 
 export default function ProductDisplay() {
     //define state
     const [bakeData] = useState(bakeStore);
-    // console.log(bakeData);
+    console.log(bakeData);
+
+    //getting data from store 
+    const updatedBakeArray = useSelector(state => state.bakeTypes.updatedBakeArray);
+    console.log(updatedBakeArray);
     
     //display error page if the search is undefined 
     if (bakeData.length === 0) {
@@ -21,9 +27,7 @@ export default function ProductDisplay() {
             <div className="bakelist">
                 <div className="bakelist-center">
                     {bakeData.map(item => {
-                        // console.log(item.title);     //testing
                         return (
-                            // <ProductList key = {item.id} bake = {item} />
                             <div className="product-list">
                                 <Link >
                                     <img className="list-image" src={item.image} alt="bakeimage" />
