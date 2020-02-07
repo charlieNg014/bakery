@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {bakeStore, bake} from '../../data'
+import {bakeStore} from '../../data'
 import Title from "../Title"
+import { Link } from 'react-router-dom'
 
 export default class ProductFilter extends Component {
     //define state 
@@ -8,7 +9,6 @@ export default class ProductFilter extends Component {
         bakeData: bakeStore
     }
 
-    
     render() {
     const getUnique = (item, value) => {
         return [...new Set(item.map(item => item[value]))]
@@ -16,10 +16,14 @@ export default class ProductFilter extends Component {
 
     //get unique types of bake
     let types = getUnique(bakeStore, 'type');
-    types = ["All", ...types];
+    types = [...types];
     types = types.map((item, index) => {
         return (
-            <option value={item} key={index}>{item}</option>
+            <Link  className="filter-list" value={item} key={index}>
+               <option>
+                    {item}
+                </option> 
+            </Link>
         )
     })
 
@@ -40,30 +44,34 @@ export default class ProductFilter extends Component {
     
         return (
             <div className="services">
-                <div className="form-group">
-                    <Title title = "Category" />
-                    <select 
-                        name="type" 
-                        id="type"  
-                        className="form-control" 
-                        type={types}
-                        onChange={handleChange}
-                        > 
-                        {types}                
-                    </select>
+                <div className="filter form-group">
+                    <Title title = "Search Cake" />
+                    <ul className="filter-section">
+                        <h3 className="filter-title">Categories</h3>
+                        <li>
+                            <p className="filter-list" type={types} onClick={handleChange}>{types}</p>                
+                        </li>
+                        <hr className="filter-line"/>
+                    </ul>
+                   
                 </div>
-                <div className="form-group">
-                    <label htmlFor='price'>Price ${price}</label>
-                    <input 
-                    type='range'
-                    name='price'
-                    min={minPrice}
-                    max={maxPrice}
-                    id="price"
-                    value={price}
-                    onChange={handleChange}
-                    className="slider" 
-                    />
+                
+                <div className="filter form-group">
+                    <ul className="filter-section">
+                        <h3 className="filter-title">Filter Price</h3>
+                        <input 
+                            type='range'
+                            name='price'
+                            min={minPrice}
+                            max={maxPrice}
+                            id="price"
+                            value={price}
+                            onChange={handleChange}
+                            className="filter-slider" 
+                        />
+                        <h2 style={{marginTop: 30, marginBottom: 25}}>Price: ${minPrice} - ${maxPrice}</h2>
+                        <hr className="filter-line"/>
+                    </ul>    
                 </div>
             </div>
         )

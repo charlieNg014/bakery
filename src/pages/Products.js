@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import Info from "../components/Info"
 import Footer from "../components/Footer"
 import ProductFilter from '../components/products/ProductFilter'
+import ProductDisplay from "../components/products/ProductDisplay"
 
 export default class Products extends Component {
     render() {
@@ -24,7 +25,7 @@ export default class Products extends Component {
                             <ProductFilter />
                         </div>
                         <div className=" col-md-8">
-                            right
+                            <ProductDisplay />
                         </div>
                     </div>
             <Info />
