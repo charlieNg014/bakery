@@ -15,7 +15,7 @@ export default function ProductFilter () {
 
     //get unique types of bake
     let types = getUnique(bakeStore, 'type');
-    types = [...types];
+    types = ["All", ...types];
     types = types.map((item, index) => {
         return (
             <Link  className="filter-list" value={item} key={index}>
@@ -31,6 +31,9 @@ export default function ProductFilter () {
     let minPrice = Math.min(...bakeData.map((item) => item.price));
     let price = maxPrice;
 
+    //passing data from handle change to store 
+    const dispatch = useDispatch();
+
     //get the room with any checkbox
     const handleChangeType = (event) => {
         const value = event.target.value;
@@ -38,26 +41,20 @@ export default function ProductFilter () {
         
         const filterBake = bakeData.filter((bakeData) => bakeData.type === value);
         console.log(filterBake);
-
-        return filterBake;
+        
+        dispatch(filterBakeTypes(filterBake));
     }
 
     //handle change the price
     const handleChangePrice = (event) => {
-        const target = event.target;
-        const value = target.type ==="checkbox" ? target.checked : target.value;
-        // const name = event.target.name;
-
+        const value = event.target.value;
         console.log(value);
 
         const filterPrice = this.state.bakeData.filter((bakeData) => parseInt(bakeData.price) < value);
         console.log(filterPrice);
 
-        return filterPrice;
+        
     }
-
-    //passing data from handle change to store 
-    const dispatch = useDispatch();
 
         return (
             <div className="services">
@@ -66,7 +63,7 @@ export default function ProductFilter () {
                     <ul className="filter-section">
                         <h3 className="filter-title">Categories</h3>
                         <li>
-                            <p className="filter-list" type={types} onClick={handleChangeType} onClick={() => dispatch(filterBakeTypes(["1"]))}>{types}</p>                
+                            <p className="filter-list" type={types} onClick={handleChangeType}>{types}</p>                
                         </li>
                         <hr className="filter-line"/>
                     </ul>

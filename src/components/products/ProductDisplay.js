@@ -1,18 +1,16 @@
 import React, {useState} from 'react'
 import {bakeStore} from '../../data'
-import ProductList from "./ProductList"
 import { Link } from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux'
-import {filterBakeTypes} from "../../redux"
+import {useSelector} from 'react-redux'
 
 export default function ProductDisplay() {
     //define state
     const [bakeData] = useState(bakeStore);
-    console.log(bakeData);
+    // console.log(bakeData);
 
     //getting data from store 
     const updatedBakeArray = useSelector(state => state.bakeTypes.updatedBakeArray);
-    console.log(updatedBakeArray);
+    // console.log(updatedBakeArray);
     
     //display error page if the search is undefined 
     if (bakeData.length === 0) {
@@ -26,20 +24,36 @@ export default function ProductDisplay() {
         <div className="services">
             <div className="bakelist">
                 <div className="bakelist-center">
-                    {bakeData.map(item => {
-                        return (
-                            <div className="product-list">
-                                <Link >
-                                    <img className="list-image" src={item.image} alt="bakeimage" />
-                                </Link>
-                                <div className="list-info">
-                                    <p className="list-title">{item.title}</p>
-                                    <h3 className="list-recipe">{item.recipe}</h3>
-                                    <h6 className="list-price">${item.price}</h6>
+                    {updatedBakeArray.length === 0 ? 
+                        bakeData.map(item => {
+                            return (
+                                <div className="product-list">
+                                    <Link >
+                                        <img className="list-image" src={item.image} alt="bakeimage" />
+                                    </Link>
+                                    <div className="list-info">
+                                        <p className="list-title">{item.title}</p>
+                                        <h3 className="list-recipe">{item.recipe}</h3>
+                                        <h6 className="list-price">${item.price}</h6>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        }) :
+                        updatedBakeArray.map(item => {
+                            return (
+                                <div className="product-list">
+                                    <Link >
+                                        <img className="list-image" src={item.image} alt="bakeimage" />
+                                    </Link>
+                                    <div className="list-info">
+                                        <p className="list-title">{item.title}</p>
+                                        <h3 className="list-recipe">{item.recipe}</h3>
+                                        <h6 className="list-price">${item.price}</h6>
+                                    </div>
+                                </div>
+                            )
+                        })
+                }
                 </div>
             </div>
         </div>

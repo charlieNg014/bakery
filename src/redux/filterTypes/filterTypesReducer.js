@@ -2,7 +2,7 @@ import {BAKE_TYPES_FILTER} from "./filterTypesTypes";
 
 //define initial states
 const initialData = {
-    updatedBakeArray: {}
+    updatedBakeArray: []
 }
 
 //define reducer 
