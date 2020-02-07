@@ -428,7 +428,7 @@ li {
 
 @media screen and (max-width: 480px) {
     .row.info {
-        height: 870px;
+        height: 930px;
     }
 
     form.ps-form--footer-subscribe {
