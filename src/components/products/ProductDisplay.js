@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-import {bakeStore} from '../../data'
+import {bakeStore, bake} from '../../data'
 import { Link } from 'react-router-dom';
 import {useSelector} from 'react-redux'
+import ProductList from './ProductList';
 
 export default function ProductDisplay() {
     //define state
@@ -9,9 +10,9 @@ export default function ProductDisplay() {
     // console.log(bakeData);
 
     //getting data from store 
-    const updatedBakeArray = useSelector(state => state.bakeTypes.updatedBakeArray);
+    const updatedBakeArray = useSelector(state => state.bakeFilter.updatedBakeArray);
     // console.log(updatedBakeArray);
-    
+
     //display error page if the search is undefined 
     if (bakeData.length === 0) {
         return (
@@ -25,32 +26,14 @@ export default function ProductDisplay() {
             <div className="bakelist">
                 <div className="bakelist-center">
                     {updatedBakeArray.length === 0 ? 
-                        bakeData.map(item => {
+                        bakeData.map((item, index) => {
                             return (
-                                <div className="product-list">
-                                    <Link >
-                                        <img className="list-image" src={item.image} alt="bakeimage" />
-                                    </Link>
-                                    <div className="list-info">
-                                        <p className="list-title">{item.title}</p>
-                                        <h3 className="list-recipe">{item.recipe}</h3>
-                                        <h6 className="list-price">${item.price}</h6>
-                                    </div>
-                                </div>
+                                <ProductList key ={index} bakeList = {item} />
                             )
                         }) :
-                        updatedBakeArray.map(item => {
+                        updatedBakeArray.map((item, index)  => {
                             return (
-                                <div className="product-list">
-                                    <Link >
-                                        <img className="list-image" src={item.image} alt="bakeimage" />
-                                    </Link>
-                                    <div className="list-info">
-                                        <p className="list-title">{item.title}</p>
-                                        <h3 className="list-recipe">{item.recipe}</h3>
-                                        <h6 className="list-price">${item.price}</h6>
-                                    </div>
-                                </div>
+                                <ProductList key = {index}  bakeList = {item} />
                             )
                         })
                 }

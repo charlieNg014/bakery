@@ -1,2 +1,3 @@
 export {importData} from "./data/dataAction";
-export {filterBakeTypes} from "./filterTypes/filterTypesAction";
+export {filteredBake} from "./filterTypes/filterTypesAction";
+export {filterBakePrice} from "./filterPrice/filterPriceAction";

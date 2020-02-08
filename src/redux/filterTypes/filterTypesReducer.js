@@ -1,4 +1,4 @@
-import {BAKE_TYPES_FILTER} from "./filterTypesTypes";
+import {BAKE_FILTER} from "./filterTypesTypes";
 
 //define initial states
 const initialData = {
@@ -6,9 +6,9 @@ const initialData = {
 }
 
 //define reducer 
-const bakeTypesReducer = (state = initialData, action) => {
+const bakeFilterReducer = (state = initialData, action) => {
     switch (action.type) {
-        case BAKE_TYPES_FILTER: 
+        case BAKE_FILTER: 
         return {
             ...state, 
             updatedBakeArray: action.update
@@ -17,4 +17,4 @@ const bakeTypesReducer = (state = initialData, action) => {
     }
 }
 
-export default bakeTypesReducer;
+export default bakeFilterReducer;

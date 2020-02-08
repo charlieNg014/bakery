@@ -1,8 +1,8 @@
-import {BAKE_TYPES_FILTER} from "./filterTypesTypes"
+import {BAKE_FILTER} from "./filterTypesTypes"
 
-export const filterBakeTypes = (newBakeArray) => {
+export const filteredBake = (newBakeArray) => {
     return {
-        type: BAKE_TYPES_FILTER,
+        type: BAKE_FILTER,
         update: newBakeArray
     }
 }
