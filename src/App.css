@@ -472,6 +472,9 @@ a.ft-social {
 /* footer ends  */
 
 /* about page starts  */
+div#navbarNavAltMarkup {
+    margin-left: 0;
+}
 .services.about {
     background-color: aliceblue;
     margin-top: 90px;
@@ -912,6 +915,7 @@ h2.instant-title {
     p.addInfo-details {
         padding: 0;
         margin: 0;
+        margin-bottom: 30px;
     }
 
     .review-info.col-md-11 {
@@ -942,6 +946,24 @@ h2.instant-title {
 }
 
 /* additional info ends  */
+
+/* related products starts   */
+.relatedproduct {
+    background-color: antiquewhite;
+    margin-bottom: -80px;
+}
+
+p.related-subtitle {
+    padding-top: 80px;
+    color: black;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.bakelist {
+    padding-top: 0px;
+}
+/* related products ends  */
 
 /* tablets  */
 @media screen and (max-width: 768px) {

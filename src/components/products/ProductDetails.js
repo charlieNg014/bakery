@@ -1,13 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Info from "../Info"
 import Footer from "../Footer"
 import {Link} from "react-router-dom"
 import {useSelector} from 'react-redux'
 import reviewimage from "../../images/review-image.jpg"
+import {bakeStore} from '../../data'
+import {MdHistory} from "react-icons/md"
+import {useDispatch} from 'react-redux'
+import {getProductDetails} from "../../redux"
 
 export default function ProductDetails() {
     const productDetails = useSelector(state => state.getProductDetails.productDetails);
+    
+    const relatedBake = bakeStore.filter((bakeStore) => bakeStore.type === productDetails.type);
 
+    //passing data from handle change to store 
+    const dispatch = useDispatch();
+    const getBakeId = (id) => {
+        const testId = bakeStore.find((bakeList) => bakeList.id === id);
+        dispatch(getProductDetails(testId));
+    }  
+    
     return (
         <>
         <div className="services">
@@ -41,7 +54,7 @@ export default function ProductDetails() {
             </div>
             <div className="product-additionalInfo">
                 <div className="addInfo-title row">
-                    <Link className="col-md-5 title-first" onClick={console.log("test")}>Description</Link>
+                    <Link className="col-md-5 title-first">Description</Link>
                     <Link className="col-md-2 title-second">Reviews</Link>
                     <Link className="col-md-5 title-third">Addtional Info</Link>
                 </div>
@@ -84,6 +97,30 @@ export default function ProductDetails() {
                 <div className="additionalInfo-details-add">
                     <p className="addInfo-details">Additional information goes here</p>
                 </div>
+            </div>
+            <div className="relatedproduct">
+                <p className="related-subtitle">You may also like</p>
+                <h2 className="related-title">Related Products</h2>
+                <MdHistory className="story-icon"/>
+                <div className="bakelist">
+                <div className="bakelist-center">
+                    {relatedBake.map((item, index) => {
+                            return (
+                                // <ProductList key ={index} bakeList = {item} />
+                                <div className="product-list">
+                                <Link to="/products/details" onClick={() => getBakeId(item.id)}>                                 
+                                    <img className="list-image" src={item.image} alt="bakeimage" />
+                                </Link>
+                                <div className="list-info">
+                                    <p className="list-title">{item.title}</p>
+                                    <h3 className="list-recipe">{item.recipe}</h3>
+                                    <h6 className="list-price">${item.price}</h6>
+                                </div>
+                            </div>
+                            )
+                        })}
+                </div>
+            </div>
             </div>
                    
         </div>
