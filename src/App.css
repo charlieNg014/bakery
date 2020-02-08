@@ -777,8 +777,171 @@ p.details-avai, p.details-category{
     .col-md-7.details {
         text-align: center;
     }
+
+    img.details-image {
+        width: 100%;
+    }
 }
 /* product ends  */
+
+/* additional info starts */
+.addInfo-title.row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.col-md-5.title-first {
+    text-align: right;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a.col-md-2.title-second {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.col-md-5.title-third {
+    text-align: left;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.additionalInfo-details-desc {
+    /* display: none; */
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+.additionalInfo-details-review {
+    display: none;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+.additionalInfo-details-add {
+    display: none;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+h2.addInfo-title {
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+a.col-md-5.title-first:hover, .col-md-5.title-third:hover, a.col-md-2.title-second:hover  {
+    text-decoration: none;
+    color: burlywood;
+}
+
+.review-date {
+    margin-left: 80px;
+    font-size: 22px;
+    color: darkgray;
+    font-style: italic;
+    margin-left: 80px;
+}
+
+.form-group.col-md-6 {
+    padding: 0;
+}
+.instant-name.row, .instant-review.row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+input.form-control.special-left {
+    width: 98%;
+}
+
+.input.form-control.special-right {
+    width: 98%;
+    float: right;
+}
+
+h2.review-date {
+    text-align: left;
+    margin-left: 0;
+}
+
+.form-group.submit {
+    margin-top: 35px;
+}
+
+h2.instant-title {
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+@media screen and (max-width: 480px) {
+    input.form-control {
+        width: 100%;
+        float: left;
+    }
+
+    input.form-control.special-left {
+        width: 100%;
+    }
+
+    a.col-md-5.title-first, a.col-md-5.col-md-5.title-third  {
+        text-align: center;
+    }
+
+    .review.row {
+        text-align: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .review-info.col-md-11 {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    p.addInfo-details {
+        padding: 0;
+        margin: 0;
+    }
+
+    .review-info.col-md-11 {
+        display: block;
+        text-align: center;
+    }
+
+    .review-info.col-md-11 {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    p.addInfo-details {
+        text-align: left;
+        padding-top: 15px;
+    }
+
+    h2.instant-title {
+        margin-bottom: 25px;
+    }
+
+    .additionalInfo-details-add {
+        text-align: center;
+    }
+
+}
+
+/* additional info ends  */
 
 /* tablets  */
 @media screen and (max-width: 768px) {
