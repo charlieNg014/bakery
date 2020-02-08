@@ -1,17 +1,20 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import { bakeStore } from '../../data'
+import {useDispatch} from 'react-redux'
+import {getProductDetails} from "../../redux"
 
 export default function ProductList(bakeList) {    
+    //passing data from handle change to store 
+    const dispatch = useDispatch();
+
     const getBakeId = (id) => {
         const testId = bakeStore.find((bakeList) => bakeList.id === id);
-
-        console.log(testId);
-        
+        dispatch(getProductDetails(testId));
     }    
     return (
         <div className="product-list">
-            <Link onClick={() => getBakeId(bakeList.bakeList.id)
+            <Link to="/products/details" onClick={() => getBakeId(bakeList.bakeList.id)
             }>
                 <img className="list-image" src={bakeList.bakeList.image} alt="bakeimage" />
             </Link>

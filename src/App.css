@@ -474,6 +474,7 @@ a.ft-social {
 /* about page starts  */
 .services.about {
     background-color: aliceblue;
+    margin-top: 90px;
 }
 
 .about-top {
@@ -634,6 +635,10 @@ img.display-image {
 /* contact ends  */
 
 /* product statrs  */
+.product {
+    margin-top: 90px;
+}
+
 .product-display.row {
     margin-top: 60px;
     margin-left: 0px;
@@ -738,9 +743,43 @@ h6.list-price {
     font-size: 20px;
     font-weight: 800;
 }
-
-
 /* product display ends  */
+
+/* product details starts  */
+.col-md-7.details {
+    text-align: left;
+}
+
+h1.details-title {
+    text-transform: inherit;
+    color: black;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+h4.details-price {
+    color: burlywood;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.details-info {
+    font-family: unset;
+    margin-bottom: 20px;
+}
+
+p.details-avai, p.details-category{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .col-md-7.details {
+        text-align: center;
+    }
+}
+/* product ends  */
+
 /* tablets  */
 @media screen and (max-width: 768px) {
 

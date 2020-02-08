@@ -1,1 +1,0 @@
-export const BAKE_PRICE_FILTER = "BAKE_PRICE_FILTER";

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import {bakeStore, bake} from '../../data'
-import { Link } from 'react-router-dom';
-import {useSelector} from 'react-redux'
+import {bakeStore} from '../../data'
+import {useSelector, useDispatch} from 'react-redux'
 import ProductList from './ProductList';
 
 export default function ProductDisplay() {
