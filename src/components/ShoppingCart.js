@@ -33,12 +33,10 @@ export default function ShoppingCart() {
                     </div>
                     <div className="third-col">
                         <h3 className="title-quantity">Quantity</h3>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <button className="down">-</button>
-                                <input type="text" id="myNumber" className="form-control input-number" value="1" />
-                                <button className="up">+</button>
-                            </div>
+                        <div className="input-group">
+                            <button className="down">-</button>
+                            <input type="text" id="myNumber" className="form-control input-number" value="1" />
+                            <button className="up">+</button>
                         </div>
                     </div>
                     <div className="fourth-col">

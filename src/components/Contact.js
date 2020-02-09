@@ -156,31 +156,31 @@ export default class Contact extends Component {
                         <div className="row detail-form">
                             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                             <div className="form-group">
-                                <input className="form-control" type="text" placeholder="First Name" onChange = {this.onChangeFirstname}/>
+                                <input className="form-control contact-button" type="text" placeholder="First Name" onChange = {this.onChangeFirstname}/>
                             </div>
                             </div>
 
                             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                             <div className="form-group">
-                                <input className="form-control" type="text" placeholder="Last Name" onChange = {this.onChangeLastname}/>
+                                <input className="form-control contact-button" type="text" placeholder="Last Name" onChange = {this.onChangeLastname}/>
                             </div>
                             </div>
 
                             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                             <div className="form-group">
-                                <input className="form-control" type="email" placeholder="Email" onChange = {this.onChangeEmail}/>
+                                <input className="form-control contact-button" type="email" placeholder="Email" onChange = {this.onChangeEmail}/>
                             </div>
                             </div>
 
                             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                             <div className="form-group">
-                                <input className="form-control" type="text" placeholder="Phone" onChange = {this.onChangePhone}/>
+                                <input className="form-control contact-button" type="text" placeholder="Phone" onChange = {this.onChangePhone}/>
                             </div>
                             </div>
 
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                            <div className="form-group">
-                                <textarea className="form-control" type="text" row="10" required placeholder="Request" onChange = {this.onChangeNote}/>
+                            <div className="form-group contact-button">
+                                <textarea className="form-control " type="text" row="10" required placeholder="Request" onChange = {this.onChangeNote}/>
                             </div>
                             </div>
                         </div>

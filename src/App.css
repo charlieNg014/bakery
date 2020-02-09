@@ -1019,7 +1019,7 @@ h3.title-total {
 
 
 .form-group {
-	width: 30%;
+	width: 100%;
     margin: 30px;
 }
 
@@ -1170,7 +1170,7 @@ input#myNumber {
     .form-group {
         position: relative;
         text-align: center;
-        margin-left: 106px;
+        /* margin-left: 106px; */
     }
 
     h3.title-price {
@@ -1195,7 +1195,7 @@ input#myNumber {
     .first-button, .second-button, .third-button {
         width: 100%;
         text-align: center;
-    }
+    } 
 
     button.button.button4 {
         width: 220px;
@@ -1239,6 +1239,9 @@ input#myNumber {
         height: 73px;
     }
 
+    .input-group {
+        text-align: left;
+    }
 
 
 }
