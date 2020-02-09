@@ -965,6 +965,287 @@ p.related-subtitle {
 }
 /* related products ends  */
 
+/* shopping cart starts  */
+.cart {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.cart-title {
+    display: inline-flex;
+    width: 100%;
+    margin: 0;
+}
+
+.first-col {
+    text-align: left;
+    width: 35%;
+}
+
+.second-col {
+    text-align: left;
+    width: 15%;
+}
+
+.third-col {
+    text-align: left;
+    width: 25%;
+}
+
+.fourth-col {
+    text-align: left;
+    width: 25%;
+}
+
+h3.title-name {
+    font-family: initial;
+    font-size: 25px;
+}
+
+h3.title-price {
+    font-family: initial;
+    font-size: 25px;
+}
+
+h3.title-quantity {
+    font-family: initial;
+    font-size: 25px;
+}
+
+h3.title-total {
+    font-family: initial;
+    font-size: 25px;
+}
+
+
+.form-group {
+	width: 30%;
+    margin: 30px;
+}
+
+
+.name-display {
+    display: flex;
+    margin-top: 35px;
+}
+
+img.title-name-image {
+    margin-right: 25px;
+}
+
+h4.title-price-price {
+    margin-top: 35px;
+    color: brown
+}
+
+.form-group {
+    text-align: left;
+    margin-left: 0px;
+}
+
+svg.total-icon {
+    width: 50px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+input#myNumber {
+    text-align: center;
+}
+
+.cart-button {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.first-button {
+    float: left;
+    width: 25%; 
+    text-align: left;
+}
+
+.second-button {
+    float:left;
+    width: 25%;
+    text-align: left;
+}
+
+.third-button {
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+.button {
+    background-color: darkgoldenrod; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button4 {
+      border-radius: 12px;
+      height: 15px;
+    }
+
+    p.button-name {
+        margin-top: -11px;
+    }
+
+    .cart-sum {
+        display: flex;
+        width: 100%;
+        height: 380px;
+    }
+
+    .sum-left, .sum-right {
+        width: 50%;
+        height: 350px;
+    }
+  
+    .title-code {
+        display: flex;
+    }
+
+    h4.left-title {
+        text-align: left;
+        font-size: 15px;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+    }
+
+    input.form-control.coupon {
+        width: 40%;
+        height: 46px;
+
+    }
+
+    button.button-coupon.button.button4 {
+        margin-left: 40px;
+    }
+
+    .sum-right {
+        background-color: antiquewhite;
+    }
+
+    figcaption.right-total {
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 10px;
+        font-family: none;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    figure.ps-shopping-cart__total {
+        text-align: left;
+        margin-left: 30px;
+    }
+
+    .ps-radio {
+        display: inline-block;
+        margin-right: 66px;
+    }
+
+
+@media screen and (max-width: 480px) {
+    .cart-title {
+        display: block;
+    }
+
+    .first-col, .second-col, .third-col, .fourth-col {
+        text-align: center;
+        width: 100%;
+    }
+
+    .form-group {
+        position: relative;
+        text-align: center;
+        margin-left: 106px;
+    }
+
+    h3.title-price {
+        margin-top: 20px;
+        margin-bottom: -15px;
+    }
+
+    h3.title-quantity {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    h3.title-total {
+        margin-top: 30px;
+        margin-bottom: -5px;
+    }
+
+    .cart-button {
+        display: grid;
+    }
+
+    .first-button, .second-button, .third-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    button.button.button4 {
+        width: 220px;
+    }
+
+    .cart-sum {
+        display: grid;
+        height: 838px;
+    }
+
+    .sum-left, .sum-right {
+        width: 100%;
+    }
+
+    .sum-left {
+        height: 100px;
+    }
+
+    .sum-right {
+        width: 100%;
+        height: 550px;
+        padding: 0;
+    }
+
+    figure.ps-shopping-cart__total {
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    figcaption.right-total {
+        text-align: center;
+    }
+
+    button.button.button4 {
+        width: 220px;
+        height: 65px;
+    }
+
+    input.form-control.coupon {
+        width: 90%;
+        height: 73px;
+    }
+
+
+
+}
+
+
+/* shopping cart ends  */
+
 /* tablets  */
 @media screen and (max-width: 768px) {
 

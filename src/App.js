@@ -13,6 +13,7 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Test from "./components/Test"
 import ProductDetails from './components/products/ProductDetails'
+import ShoppingCart from "./components/ShoppingCart"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/test" component={Test} />
         <Route exact path="/products/details" component={ProductDetails} />
+        <Route exact path="/shoppingcart" component={ShoppingCart} />
       </Switch>
     </Provider>
     </>
