@@ -10,6 +10,22 @@
 
 
 /* navbar start */
+img {
+    vertical-align: middle;
+    border-style: none;
+    margin-left: -30px;
+}
+
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-right: 15px;
+}
+
 .navbar-brand {
     display: inline-block;
     padding-top: .3125rem;
@@ -746,6 +762,15 @@ h6.list-price {
     font-size: 20px;
     font-weight: 800;
 }
+
+.list-addtocart-hide {
+    /* display: none; */
+}
+
+.list-info-hide {
+    display: none;
+}
+
 /* product display ends  */
 
 /* product details starts  */
@@ -775,6 +800,80 @@ p.details-avai, p.details-category{
     font-size: 15px;
     margin-bottom: 20px;
 }
+
+img.review-image {
+    margin-left: 20px;
+}
+
+.details-button {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.button-first {
+    margin: 0;
+    padding: 0;
+    background-color: #004882;
+    background-color: #0563af;
+    color: white;
+    padding: 12px;
+    width: 175px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    border-radius: 12px;
+    height: 53px;
+    width: 20%;
+}
+
+.button-second {
+    width: 30%;
+    display: contents;
+}
+
+button.down {
+    margin-left: 40px;
+    height: 50px;
+    width: 58px;
+    margin-right: 10px;
+}
+
+button.up {
+    margin-left: 10px;
+    height: 50px;
+    width: 58px;
+}
+
+input.form-control.updownvalue {
+    text-align: center;
+    width: 30%;
+    height: 50px;
+}
+
+.button-third {
+    width: 50%;
+}
+
+.third-addcart {
+    background-color: burlywood;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 49px;
+    height: 51px;
+    margin-left: 40px;
+
+}
+
 
 @media screen and (max-width: 480px) {
     .col-md-7.details {
@@ -813,14 +912,13 @@ a.col-md-2.title-second {
 }
 
 .additionalInfo-details-desc {
-    /* display: none; */
     text-align: left;
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 30px;
 }
+
 .additionalInfo-details-review {
-    display: none;
     text-align: left;
     margin-left: 40px;
     margin-right: 40px;
@@ -828,6 +926,29 @@ a.col-md-2.title-second {
 }
 
 .additionalInfo-details-add {
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+.additionalInfo-details-desc-hide {
+    display: none;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+.additionalInfo-details-review-hide {
+    display: none;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+.additionalInfo-details-add-hide {
     display: none;
     text-align: left;
     margin-left: 40px;
@@ -864,11 +985,11 @@ a.col-md-5.title-first:hover, .col-md-5.title-third:hover, a.col-md-2.title-seco
     margin-right: 0;
 }
 input.form-control.special-left {
-    width: 98%;
+    width: 100%;
 }
 
 .input.form-control.special-right {
-    width: 98%;
+    width: 100%;
     float: right;
 }
 
@@ -995,6 +1116,7 @@ p.related-subtitle {
 .fourth-col {
     text-align: left;
     width: 25%;
+    margin-left: 30px;
 }
 
 h3.title-name {
@@ -1031,6 +1153,13 @@ h3.title-total {
 
 img.title-name-image {
     margin-right: 25px;
+    height: 80px;
+}
+
+p.title-alltotal {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 h4.title-price-price {
@@ -1156,6 +1285,15 @@ input#myNumber {
         margin-right: 66px;
     }
 
+    .form-control.input-number {
+        width: 50%;
+    }
+
+    img.title-name-image {
+        margin-right: 25px;
+        margin-left: 0;
+    }
+
 
 @media screen and (max-width: 480px) {
     .cart-title {
@@ -1240,9 +1378,9 @@ input#myNumber {
     }
 
     .input-group {
-        text-align: left;
+        text-align: center;
+        width: 50%;
     }
-
 
 }
 
@@ -1259,8 +1397,8 @@ input#myNumber {
 @media screen and (max-width: 480px) {
     .show-nav {
         display: block;
-        margin: auto 120px;
         text-align: center;
+        width: 100%;
     }
 
     p.subtitle {

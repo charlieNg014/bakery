@@ -3,8 +3,12 @@ import {Link} from "react-router-dom"
 import Info from "./Info"
 import Footer from "./Footer"
 import {TiDeleteOutline} from "react-icons/ti"
+import {useSelector} from 'react-redux'
 
 export default function ShoppingCart() {
+    const newBakeOrder = useSelector(state => state.getNewBakeOrder.newBakeOrder);
+    // console.log(newBakeOrder);
+    
     return (
         <>
         <div className="services" style={{padding: 0}}>
@@ -23,24 +27,25 @@ export default function ShoppingCart() {
                     <div className="first-col">
                         <h3 className="title-name">Product Name</h3>
                         <div className="name-display">
-                            <img className="title-name-image" alt="productimage" />
-                            <h4 className="title-name-name">name goes here</h4>
+                            <img className="title-name-image" alt="productimage" src={newBakeOrder.image} />
+                            <h4 className="title-name-name">{newBakeOrder.title}</h4>
                         </div>
                     </div>
                     <div className="second-col">
                         <h3 className="title-price">Unit Price</h3>
-                        <h4 className="title-price-price">$price goes here</h4>
+                        <h4 className="title-price-price">${newBakeOrder.price}</h4>
                     </div>
                     <div className="third-col">
                         <h3 className="title-quantity">Quantity</h3>
                         <div className="input-group">
                             <button className="down">-</button>
-                            <input type="text" id="myNumber" className="form-control input-number" value="1" />
+                            <input type="text" id="myNumber" className="form-control input-number" value={newBakeOrder.amount} />
                             <button className="up">+</button>
                         </div>
                     </div>
                     <div className="fourth-col">
                         <h3 className="title-total">Total</h3>
+                        <p className="title-alltotal">${newBakeOrder.price * newBakeOrder.amount}</p>
                         <Link>
                             <TiDeleteOutline  className="total-icon"/>
                         </Link>
@@ -60,9 +65,12 @@ export default function ShoppingCart() {
                         </button>
                     </div>
                     <div className="third-button">
-                        <button className="button button4">
-                            <p className="button-name">Continue Shoping</p>
-                        </button>
+                        <Link to="/products">
+                            <button className="button button4">
+                                <p className="button-name">Continue Shoping</p>
+                            </button>
+                        </Link>
+                        
                     </div>
                 </div>
                 <div className="cart-sum">

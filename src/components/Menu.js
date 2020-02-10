@@ -44,7 +44,8 @@ export default class Menu extends Component {
                                         return(
                                             <article key={index} className="service row">
                                                 <div className="col-md-3">
-                                                    <img className="item-image" src={item.image} alt="itemimage" />                                                </div>
+                                                    <img className="item-image" src={item.image} alt="itemimage" />     
+                                                </div>
                                                 <div className="col-md-4">
                                                     <h6 className="name">{item.title}</h6>
                                                     <p className="info">{item.info}</p>   
