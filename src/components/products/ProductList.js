@@ -4,7 +4,7 @@ import { bakeStore } from '../../data'
 import {useDispatch} from 'react-redux'
 import {getProductDetails} from "../../redux"
 
-export default function ProductList(bakeList) {    
+export default function ProductList(bakeList) {
     //passing data from handle change to store 
     const dispatch = useDispatch();
     const [isAddToCart, setAddtoCart] = useState(false);

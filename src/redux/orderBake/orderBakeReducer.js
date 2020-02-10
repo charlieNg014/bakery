@@ -11,7 +11,7 @@ const getNewBakeOrderReducer = (state = initialData, action) => {
         case ORDER_BAKE: 
         return {
             ...state, 
-            newBakeOrder: state.newBakeOrder.append(action.update)
+            newBakeOrder: state.newBakeOrder.concat(action.update)
         }
         default: return state
     }
