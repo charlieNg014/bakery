@@ -1,22 +1,24 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import { bakeStore } from '../../data'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {getProductDetails} from "../../redux"
 
 export default function ProductList(bakeList) {
     //passing data from handle change to store 
     const dispatch = useDispatch();
     const [isAddToCart, setAddtoCart] = useState(false);
-    
+    const productDetails = useSelector(state => state.getProductDetails.productDetails);
     const getBakeId = (id) => {
-        const testId = bakeStore.find((bakeList) => bakeList.id === id);
-        dispatch(getProductDetails(testId));
+        const bakeId = bakeStore.find((bakeList) => bakeList.id === id);
+        dispatch(getProductDetails(bakeId));
+        
     }    
 
     // const productDetails = useSelector(state => state.getProductDetails.productDetails);
     // console.log(productDetails);
-    
+        // const productDetails = useSelector(state => state.getProductDetails.productDetails);
+        // console.log(productDetails);
 
     return (
         <div className="product-list">
@@ -31,9 +33,13 @@ export default function ProductList(bakeList) {
                 <h6 className="list-price">${bakeList.bakeList.price}</h6>
             </div>
             <div className = {isAddToCart === true ? "list-addtocart" : "list-addtocart-hide"}>
-                }>
-                <button className="detail-btn addcart" 
-                >Add to cart</button>
+                <button className="detail-btn addcart" onClick={() => {
+                    getBakeId(bakeList.bakeList.id);
+                    console.log(productDetails);
+                    
+                }}>
+                    Add to cart
+                </button>
             </div>
         </div>
     )

@@ -1117,6 +1117,7 @@ p.related-subtitle {
     text-align: left;
     width: 25%;
     margin-left: 30px;
+    display: flex;
 }
 
 h3.title-name {
@@ -1154,17 +1155,24 @@ h3.title-total {
 img.title-name-image {
     margin-right: 25px;
     height: 80px;
+    margin-top: -15px;
+}
+
+h4.title-name-name {
+    margin-top: 12px;
 }
 
 p.title-alltotal {
     font-size: 20px;
     margin-top: 20px;
     font-weight: bold;
+    margin-top: 45px;
 }
 
 h4.title-price-price {
-    margin-top: 35px;
-    color: brown
+    margin-top: 50px;
+    color: brown;
+    margin-left: 12px;
 }
 
 .form-group {
@@ -1175,11 +1183,18 @@ h4.title-price-price {
 svg.total-icon {
     width: 50px;
     height: 40px;
-    margin-top: 20px;
+    margin-top: 44px;
+}
+
+.input-group.title-qtity {
+    text-align: left;
+    margin-left: -38px;
+    margin-top: 37px;
 }
 
 input#myNumber {
     text-align: center;
+    height: 50px;
 }
 
 .cart-button {
@@ -1304,6 +1319,11 @@ input#myNumber {
         text-align: center;
         width: 100%;
     }
+    .fourth-col {
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
 
     .form-group {
         position: relative;
@@ -1378,8 +1398,14 @@ input#myNumber {
     }
 
     .input-group {
-        text-align: center;
-        width: 50%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+        margin-left: -37px;
+        margin-top: 40px;
+
     }
 
 }

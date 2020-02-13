@@ -13,7 +13,7 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Test from "./components/Test"
 import ProductDetails from './components/products/ProductDetails'
-import ShoppingCart from "./components/ShoppingCart"
+import ShoppingCart from "./components/shoppingcart/ShoppingCart"
 
 function App() {
   return (

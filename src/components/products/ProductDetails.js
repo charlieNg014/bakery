@@ -59,8 +59,8 @@ export default function ProductDetails() {
             amount,
             requestedSize
         }
-        console.log(newOrder);
-        console.log(dispatch(getNewBakeOrder(newOrder)));
+        // console.log(newOrder);
+        dispatch(getNewBakeOrder(newOrder));
         
     }
     
