@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import {TiDeleteOutline} from "react-icons/ti"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+import {getNewBakeOrder} from "../../redux"
 
 export default function CartDetails(orderdetails) {
+    const dispatch = useDispatch();
     // console.log(orderdetails);
     let bakeOrder = orderdetails.orderdetails;
     // console.log(bakeOrder);
@@ -20,7 +22,7 @@ export default function CartDetails(orderdetails) {
         for (var i = 0; i < originOrder.length; i++) {
            value = originOrder[i].price * originOrder[i].amount;
         }
-        console.log(value);
+        // console.log(value);
         return value;
     }
 
@@ -85,7 +87,13 @@ export default function CartDetails(orderdetails) {
         // console.log(index);
         
         //splicing to update amount
-        const test = originOrder.splice(index, 1, updatedNewBakeOrder);
+        const deleteAmount = array.amount - 1;
+        if (deleteAmount === 0) {
+            const test = originOrder.splice(index, 1);
+            dispatch(getNewBakeOrder(originOrder));
+        } else {
+            const test = originOrder.splice(index, 1, updatedNewBakeOrder);
+        }
         // console.log(test);
         getTotal(total, originOrder);
     }
@@ -136,7 +144,7 @@ export default function CartDetails(orderdetails) {
                     <div className="input-group title-qtity">
                         <button className="down" onClick = {() => 
                             {
-                                if (updateAmount > 1) {
+                                if (updateAmount > 0) {
                                     setUpdateAmount(updateAmount - 1);
                                 }
                                 decreaseBakeOrder(updateAmount, bakeOrder, newBakeOrder);

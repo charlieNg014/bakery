@@ -4,12 +4,11 @@ import Info from ".././Info"
 import Footer from ".././Footer"
 import {useSelector, useDispatch} from 'react-redux'
 import CartDetails from './CartDetails'
-import {getNewBakeOrder} from "../../redux"
+
 
 export default function ShoppingCart() {
-    const dispatch = useDispatch();
     let [newBakeOrder, setNewBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
-    console.log(newBakeOrder);
+    // console.log(newBakeOrder);
     let [total, setTotal] = useState(0);
 
     //get the total amount
