@@ -1,14 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom"
 import { bakeStore } from '../../data'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {getProductDetails} from "../../redux"
 
 export default function ProductList(bakeList) {
     //passing data from handle change to store 
     const dispatch = useDispatch();
-    const [isAddToCart, setAddtoCart] = useState(false);
-    const productDetails = useSelector(state => state.getProductDetails.productDetails);
+    // const productDetails = useSelector(state => state.getProductDetails.productDetails);
     const getBakeId = (id) => {
         const bakeId = bakeStore.find((bakeList) => bakeList.id === id);
         dispatch(getProductDetails(bakeId));
@@ -24,23 +23,26 @@ export default function ProductList(bakeList) {
         <div className="product-list">
             <Link to="/products/details" onClick={() => getBakeId(bakeList.bakeList.id)
             }>
-                <img className="list-image" src={bakeList.bakeList.image} alt="bakeimage" onMouseOver = {() => setAddtoCart(isAddToCart === false)} onMouseLeave = {() => setAddtoCart(isAddToCart === !isAddToCart)} 
-                 />
+                <img className="list-image" src={bakeList.bakeList.image} alt="bakeimage" /> 
             </Link>
-            <div className={isAddToCart === true ? "list-info-hide" : "" }>
+            <div className= "list-info-hide">
                 <p className="list-title">{bakeList.bakeList.title}</p>
                 <h3 className="list-recipe">{bakeList.bakeList.recipe}</h3>
                 <h6 className="list-price">${bakeList.bakeList.price}</h6>
             </div>
-            <div className = {isAddToCart === true ? "list-addtocart" : "list-addtocart-hide"}>
+            {/* <div className = {isAddToCart === true ? "list-addtocart" : "list-addedtocart" }>
                 <button className="detail-btn addcart" onClick={() => {
-                    getBakeId(bakeList.bakeList.id);
-                    console.log(productDetails);
-                    
+                    setAddtoCart(isAddToCart = false);
+                    setAddedToCart(isAddToCart = false);
                 }}>
                     Add to cart
                 </button>
             </div>
+            <div className = {isAddedToCart === false ? "list-addtocart" : "list-addedtocart" }>
+                <button className="detail-btn addcart">
+                    Added
+                </button>
+            </div> */}
         </div>
     )
 }

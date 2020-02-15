@@ -4,14 +4,16 @@ import Info from ".././Info"
 import Footer from ".././Footer"
 import {useSelector, useDispatch} from 'react-redux'
 import CartDetails from './CartDetails'
-
+import {getUpdateBakeOrder} from "../../redux"
 
 export default function ShoppingCart() {
-    let [newBakeOrder, setNewBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
+    const dispatch = useDispatch();
+    let [newBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
     // console.log(newBakeOrder);
-    let [total, setTotal] = useState(0);
 
-    //get the total amount
+    // let [finalBakeOrder] = useState(useSelector(state => state.getUpdateBakeOrder.finalBakeOrder));
+    const finalOrder = useSelector(state => state.getFinalBakeOrder.finalOrder);
+    console.log(finalOrder);
     
     return (
         <>
@@ -44,26 +46,30 @@ export default function ShoppingCart() {
                     </div>
                     {newBakeOrder.map((item, index) => {
                         return (
+                            <>
                             <CartDetails key={index} orderdetails = {item} />
+                            </>
                         )
                     })}
+                    {/* <CartDetails orderdetails = {newBakeOrder} /> */}
                 </div>
                 <hr className="filter-line"/>
                 <div className="cart-button">
                     <div className="first-button">
                         <Link 
-                        // onClick={() => dispatch(getNewBakeOrder(setNewBakeOrder(newBakeOrder = [])))}
-                        >
+                        onClick={() => {
+                            dispatch(getUpdateBakeOrder([]));
+                        }}>
                             <button className="button button4">
                                 <p className="button-name">Clear Shoping Cart</p>
                             </button>
                         </Link>
                     </div>
-                    {/* <div className="second-button">
+                    <div className="second-button">
                         <button className="button button4">
                             <p className="button-name">Update Shoping Cart</p>                        
                         </button>
-                    </div> */}
+                    </div>
                     <div className="third-button">
                         <Link to="/products">
                             <button className="button button4">

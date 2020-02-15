@@ -763,12 +763,9 @@ h6.list-price {
     font-weight: 800;
 }
 
-.list-addtocart-hide {
-    /* display: none; */
-}
-
-.list-info-hide {
+.list-addedtocart {
     display: none;
+    transition: ease-in-out;
 }
 
 /* product display ends  */
@@ -1220,7 +1217,7 @@ input#myNumber {
 .third-button {
     float: right;
     width: 50%;
-    text-align: center;
+    text-align: right;
 }
 
 .button {
