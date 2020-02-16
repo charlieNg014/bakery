@@ -11,7 +11,6 @@ export default function ProductList(bakeList) {
     const getBakeId = (id) => {
         const bakeId = bakeStore.find((bakeList) => bakeList.id === id);
         dispatch(getProductDetails(bakeId));
-        
     }    
 
     // const productDetails = useSelector(state => state.getProductDetails.productDetails);

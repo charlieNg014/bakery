@@ -13,7 +13,6 @@ export default function ProductDetails() {
     const productDetails = useSelector(state => state.getProductDetails.productDetails);
     // console.log(productDetails);
     
-
     //define state 
     let [isDescription, setDesc] = useState(true);
     let [isReview, setRev] = useState(false);

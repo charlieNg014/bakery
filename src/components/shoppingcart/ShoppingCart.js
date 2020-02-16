@@ -2,18 +2,66 @@ import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import Info from ".././Info"
 import Footer from ".././Footer"
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import CartDetails from './CartDetails'
-import {getUpdateBakeOrder} from "../../redux"
+
 
 export default function ShoppingCart() {
-    const dispatch = useDispatch();
     let [newBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
-    // console.log(newBakeOrder);
+    console.log(newBakeOrder);
+
+    let [total] = useState(0);
+    let [rate, setRate] = useState(false);
 
     // let [finalBakeOrder] = useState(useSelector(state => state.getUpdateBakeOrder.finalBakeOrder));
-    const finalOrder = useSelector(state => state.getFinalBakeOrder.finalOrder);
-    console.log(finalOrder);
+    // const finalOrder = useSelector(state => state.getFinalBakeOrder.finalOrder);
+    // console.log(finalOrder);
+
+    // const updateOrder = useSelector(state => state.getUpdateBakeOrder.updateOrder);
+    // console.log(updateOrder);
+
+    //clear the cart
+    const clearCart = (recentOrder) => {
+        for (var i = recentOrder.length - 1; i >= 0; i--) {
+            recentOrder.splice(i, 1);
+        }
+    }
+
+    //get the total
+    const getSubTotal = (recentOrder) => {
+        for (var i = 0; i < recentOrder.length ; i++) {
+            total += recentOrder[i].amount * recentOrder[i].price;
+        }
+        return total;
+    }    
+
+    const getTotal = (requiredRate) => {
+        if (requiredRate === true) {
+            total += 10;
+        } 
+        return total;
+    }
+
+    //get rate for shipping
+    const handleNormalRate = (e) => {
+        const target = e.target;
+        const value = target.type === "radio"
+        ? target.checked
+        : target.value
+
+        setRate(rate = value);
+        console.log(rate);
+    }
+
+    const handleNoRate =(e) => {
+        const target = e.target;
+        const value = target.type === "radio" 
+        ? target.checked
+        : target.value
+
+        setRate(rate = !value)
+        console.log(rate);
+    }
     
     return (
         <>
@@ -38,9 +86,12 @@ export default function ShoppingCart() {
                             <h3 className="title-price">Unit Price</h3>
                         </div>
                         <div className="third-col">
-                            <h3 className="title-quantity">Quantity</h3>
+                            <h3 className="title-total">Size</h3>
                         </div>
                         <div className="fourth-col">
+                            <h3 className="title-quantity">Quantity</h3>
+                        </div>
+                        <div className="fifth-col">
                             <h3 className="title-total">Total</h3>
                         </div>
                     </div>
@@ -51,6 +102,7 @@ export default function ShoppingCart() {
                             </>
                         )
                     })}
+                    {/* <CartDetails /> */}
                     {/* <CartDetails orderdetails = {newBakeOrder} /> */}
                 </div>
                 <hr className="filter-line"/>
@@ -58,7 +110,8 @@ export default function ShoppingCart() {
                     <div className="first-button">
                         <Link 
                         onClick={() => {
-                            dispatch(getUpdateBakeOrder([]));
+                            // dispatch(getUpdateBakeOrder([]));
+                            clearCart(newBakeOrder);
                         }}>
                             <button className="button button4">
                                 <p className="button-name">Clear Shoping Cart</p>
@@ -97,24 +150,31 @@ export default function ShoppingCart() {
                         <table className="table">
                             <tr>
                             <td>SubTotal</td>
-                                <td><strong>${ }</strong></td>
+                                <td><strong>${Math.round(getSubTotal(newBakeOrder))}</strong></td>
                             </tr>
                             <tr>
                             <td>Shipping</td>
                             <td>
                                 <div className="ps-radio">
-                                <input className="form-control" type="radio" id="shipping-1" name="shipping"/>
-                                <label for="shipping-1">Flat Rate: $10.00 </label>
+                                <input className="form-control" type="radio" id="shipping-1" name="shipping" onChange = {handleNormalRate} />
+                                <label for="shipping-1">
+                                    Normal Rate: $10.00 
+                                </label>
                                 </div>
                                 <div className="ps-radio">
-                                <input className="form-control" type="radio" id="shipping-2" name="shipping"/>
-                                <label for="shipping-2">Free Shipping Nearby CAMBERWELL OR FERNTREE GULLY.</label>
+                                <input className="form-control" type="radio" id="shipping-2" name="shipping" onChange = {handleNoRate}/>
+                                <label for="shipping-2">
+                                    Free Shipping Nearby CAMBERWELL OR FERNTREE GULLY.
+                                </label>
                                 </div>
                             </td>
                             </tr>
                             <tr className="total">
                             <td>Total</td>
-                            <td style={{fontSize: 25, fontWeight: "bold"}}>$48.00</td>
+                                
+                            <td style={{fontSize: 25, fontWeight: "bold"}}>
+                                ${Math.round(getTotal(rate))}
+                            </td>
                             </tr>
                         </table>
                         <button className="button button4">

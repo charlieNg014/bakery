@@ -1097,26 +1097,30 @@ p.related-subtitle {
 
 .first-col {
     text-align: left;
-    width: 35%;
+    width: 30%;
 }
 
 .second-col {
     text-align: left;
-    width: 15%;
+    width: 20%;
 }
 
 .third-col {
     text-align: left;
-    width: 25%;
+    width: 20%;
 }
 
 .fourth-col {
     text-align: left;
-    width: 25%;
+    width: 20%
+}
+
+.fifth-col {
+    text-align: left;
+    width: 20%;
     margin-left: 30px;
     display: flex;
 }
-
 h3.title-name {
     font-family: initial;
     font-size: 25px;
@@ -1170,6 +1174,12 @@ h4.title-price-price {
     margin-top: 50px;
     color: brown;
     margin-left: 12px;
+}
+
+h4.title-size {
+    margin-top: 50px;
+    color: burlywood;
+    margin-left: -8px;
 }
 
 .form-group {
