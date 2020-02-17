@@ -2,14 +2,12 @@ import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import Info from ".././Info"
 import Footer from ".././Footer"
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import CartDetails from './CartDetails'
-
+import {getNewBakeOrder} from "../../redux"
 
 export default function ShoppingCart() {
-    let [newBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
-    console.log(newBakeOrder);
-
+    const dispatch = useDispatch();
     let [total] = useState(0);
     let [rate, setRate] = useState(false);
 
@@ -17,8 +15,22 @@ export default function ShoppingCart() {
     // const finalOrder = useSelector(state => state.getFinalBakeOrder.finalOrder);
     // console.log(finalOrder);
 
-    // const updateOrder = useSelector(state => state.getUpdateBakeOrder.updateOrder);
-    // console.log(updateOrder);
+    let updateOrder = useSelector(state => state.getUpdateBakeOrder.updateOrder);
+    console.log(updateOrder);
+
+    let [newBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
+    console.log(newBakeOrder);
+
+    let updateLength = updateOrder.length;
+    let newLength = newBakeOrder.length;
+
+    if (updateLength > 0 && (newLength <= updateLength)) {
+        // dispatch(getNewBakeOrder(updateOrder));
+        console.log("test");
+        
+    }
+
+    let finalOrder = useSelector(state => state.getNewBakeOrder.newBakeOrder);
 
     //clear the cart
     const clearCart = (recentOrder) => {
@@ -95,7 +107,7 @@ export default function ShoppingCart() {
                             <h3 className="title-total">Total</h3>
                         </div>
                     </div>
-                    {newBakeOrder.map((item, index) => {
+                    {finalOrder.map((item, index) => {
                         return (
                             <>
                             <CartDetails key={index} orderdetails = {item} />
@@ -119,9 +131,11 @@ export default function ShoppingCart() {
                         </Link>
                     </div>
                     <div className="second-button">
-                        <button className="button button4">
-                            <p className="button-name">Update Shoping Cart</p>                        
-                        </button>
+                        <Link to="/updatecart">
+                            <button className="button button4">
+                                <p className="button-name">Update Shoping Cart</p>                        
+                            </button>
+                        </Link>
                     </div>
                     <div className="third-button">
                         <Link to="/products">
