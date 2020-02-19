@@ -2,12 +2,10 @@ import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import Info from ".././Info"
 import Footer from ".././Footer"
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import CartDetails from './CartDetails'
-import {getNewBakeOrder} from "../../redux"
 
 export default function ShoppingCart() {
-    const dispatch = useDispatch();
     let [total] = useState(0);
     let [rate, setRate] = useState(false);
 
@@ -21,14 +19,14 @@ export default function ShoppingCart() {
     let [newBakeOrder] = useState(useSelector(state => state.getNewBakeOrder.newBakeOrder));
     console.log(newBakeOrder);
 
-    let updateLength = updateOrder.length;
-    let newLength = newBakeOrder.length;
+    // let updateLength = updateOrder.length;
+    // let newLength = newBakeOrder.length;
 
-    if (updateLength > 0 && (newLength <= updateLength)) {
-        // dispatch(getNewBakeOrder(updateOrder));
-        console.log("test");
+    // if (updateLength > 0 && (newLength <= updateLength)) {
+    //     // dispatch(getNewBakeOrder(updateOrder));
+    //     console.log("test");
         
-    }
+    // }
 
     let finalOrder = useSelector(state => state.getNewBakeOrder.newBakeOrder);
 

@@ -3,7 +3,6 @@ import Info from "../Info"
 import Footer from "../Footer"
 import {Link} from "react-router-dom"
 import {useSelector, useDispatch} from 'react-redux'
-import {TiDeleteOutline} from "react-icons/ti"
 import {getUpdateBakeOrder} from "../../redux"
 
 
@@ -142,16 +141,22 @@ export default function UpdateCart() {
         }
     }
 
-    const removeBake = (prevOrder, originOrder) => {
-        let id = prevOrder.id;
-        //get index of splicing 
-        const array = originOrder.find((originOrder) => originOrder.id === id);
-        const index = originOrder.indexOf(array);
-        // console.log(index);
+    // const removeBake = (prevOrder, originOrder, updatedOrder) => {
+    //     let id = prevOrder.id;
+    //     let length = updatedOrder.length;
+    //     //get index of splicing 
+    //     const array = originOrder.find((originOrder) => originOrder.id === id);
+    //     const index = originOrder.indexOf(array);
+    //     // console.log(index);
         
-        //splicing to update amount
-        originOrder.splice(index, 1);
-    }
+    //     //splicing to update amount
+    //     if (length === 0) {
+    //         originOrder.splice(index, 1);
+    //     } else {
+    //         updatedOrder.splice(index, 1);
+    //     }
+       
+    // }
     return (
         <>
         <div className="services" style={{padding: 0}}>
@@ -226,14 +231,14 @@ export default function UpdateCart() {
                                     </button>
                                     </div>
                                 </div>
-                                <div className="fifth-col">
+                                {/* <div className="fifth-col">
                                     <p className="title-alltotal">${Math.round(item.price * updateAmount)}</p>
                                     <p className="title-delete">
                                         <Link className="total-delete" onClick={() => removeBake(item, newBakeOrder)}>
                                             <TiDeleteOutline  className="total-icon"/>
                                         </Link>
                                     </p>
-                                </div>
+                                </div> */}
                             </div> 
                             </>
                         )
@@ -279,14 +284,14 @@ export default function UpdateCart() {
                                     </button>
                                     </div>
                                 </div>
-                                <div className="fifth-col">
+                                {/* <div className="fifth-col">
                                     <p className="title-alltotal">${Math.round(item.price * updateAmount)}</p>
                                     <p className="title-delete">
                                         <Link className="total-delete" onClick={() => removeBake(item, newBakeOrder)}>
                                             <TiDeleteOutline  className="total-icon"/>
                                         </Link>
                                     </p>
-                                </div>
+                                </div> */}
                             </div> 
                             </>
                         )
@@ -295,13 +300,13 @@ export default function UpdateCart() {
                 </div>
                 <hr className="filter-line"/>  
                 <div className="third-button">
-                        <Link to="/shoppingcart">
-                            <button className="button button4">
-                                <p className="button-name">Update Cart</p>
-                            </button>
-                        </Link>
-                        
-                    </div> 
+                    <Link to="/shoppingcart">
+                        <button className="button button4">
+                            <p className="button-name">Update Cart</p>
+                        </button>
+                    </Link>
+                    
+                </div> 
             </div>
         </div>
         <Info />

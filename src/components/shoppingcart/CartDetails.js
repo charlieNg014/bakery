@@ -12,17 +12,23 @@ export default function CartDetails(orderdetails) {
     
     const [updateAmount] = useState(orderdetails.orderdetails.amount);
     const newBakeOrder = useSelector(state => state.getNewBakeOrder.newBakeOrder);
+    const updatedBakeOrder = useSelector(state => state.getUpdateBakeOrder.updateOrder);
 
     //update the array with remove product
-    const removeBake = (prevOrder, originOrder) => {
+    const removeBake = (prevOrder, originOrder, updatedOrder) => {
         let id = prevOrder.id;
+        let length = updatedOrder.length;
         //get index of splicing 
         const array = originOrder.find((originOrder) => originOrder.id === id);
         const index = originOrder.indexOf(array);
         // console.log(index);
         
         //splicing to update amount
-        originOrder.splice(index, 1);
+        if (length === 0) {
+            originOrder.splice(index, 1);
+        } else {
+            updatedOrder.splice(index, 1);
+        }
     }
 
     //get back to product details
@@ -59,7 +65,7 @@ export default function CartDetails(orderdetails) {
             <div className="fifth-col">
                 <p className="title-alltotal">${Math.round(orderdetails.orderdetails.price * updateAmount)}</p>
                 <p className="title-delete">
-                    <Link className="total-delete" onClick={() => removeBake(bakeOrder, newBakeOrder)}>
+                    <Link className="total-delete" onClick={() => removeBake(bakeOrder, newBakeOrder, updatedBakeOrder)}>
                         <TiDeleteOutline  className="total-icon"/>
                     </Link>
                 </p>

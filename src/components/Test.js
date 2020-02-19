@@ -1,169 +1,95 @@
 // import React, {useState} from 'react'
-// import {Link} from "react-router-dom"
-// import {TiDeleteOutline} from "react-icons/ti"
-// import {useSelector, useDispatch} from "react-redux"
-// import {getUpdateBakeOrder, getFinalBakeOrder} from "../../redux"
+// import Modal from 'react-modal';
+// import {Button, Row, Col, Container, ButtonToolbar} from "react-bootstrap"
 
-// export default function CartDetails(orderdetails) {
-//     const dispatch = useDispatch();
-//     // console.log(orderdetails);
-//     let bakeOrder = orderdetails.orderdetails;
-//     // console.log(bakeOrder);
-    
-//     const [updateAmount, setUpdateAmount] = useState(orderdetails.orderdetails.amount);
-//     const newBakeOrder = useSelector(state => state.getNewBakeOrder.newBakeOrder);
-    
-//     //get the order updated
-//     const updatedBakeOrder = useSelector(state => state.getUpdateBakeOrder.updateOrder);
-//     console.log(updatedBakeOrder);
-
-//     //get the final order
-//     dispatch(getFinalBakeOrder(updatedBakeOrder));
-
-//     //update the order array with the changes of amount
-//     const increaseBakeOrder = (newAmount, prevOrder, originOrder) => {
-//         // console.log(newAmount + 1);  
-//         // console.log(prevOrder);
-
-//         let id = prevOrder.id;
-//         let image = prevOrder.image;
-//         let title = prevOrder.title;
-//         let price = prevOrder.price;
-//         let amount = newAmount + 1;
-//         let requestedSize = prevOrder.requestedSize;
-
-//         const updatedNewBakeOrder = {
-//             id, 
-//             image,
-//             title,
-//             price, 
-//             amount, 
-//             requestedSize
-//         }
-//         // console.log(updatedNewBakeOrder);
-
-//         //get index of splicing 
-//         const array = originOrder.find((originOrder) => originOrder.id === id);
-//         const index = originOrder.indexOf(array);
-//         // console.log(index);
-        
-//         //splicing to update amount
-//         originOrder.splice(index, 1, updatedNewBakeOrder);
-//         // console.log(originOrder);
-        
-//          dispatch(getUpdateBakeOrder(originOrder));        
-//     }
-
-//     const decreaseBakeOrder = (newAmount, prevOrder, originOrder) => {
-//         // console.log(newAmount - 1);
-//         // console.log(prevOrder);
-
-//         let id = prevOrder.id;
-//         let image = prevOrder.image;
-//         let title = prevOrder.title;
-//         let price = prevOrder.price;
-//         let amount = newAmount - 1;
-//         let requestedSize = prevOrder.requestedSize;
-
-//         const updatedNewBakeOrder = {
-//             id, 
-//             image,
-//             title,
-//             price, 
-//             amount, 
-//             requestedSize
-//         }
-//         // console.log(updatedNewBakeOrder);  
-
-//         //get index of splicing 
-//         const array = originOrder.find((originOrder) => originOrder.id === id);
-//         const index = originOrder.indexOf(array);
-//         // console.log(index);
-        
-//         //splicing to update amount
-//         const deleteAmount = array.amount - 1;
-//         if (deleteAmount === 0) {
-//         //    removeBake(prevOrder, originOrder);
-//         //    dispatch(getNewBakeOrder(originOrder));
-           
-//         } else {
-//         originOrder.splice(index, 1, updatedNewBakeOrder);
-//             // console.log(originOrder);
-            
-//         dispatch(getUpdateBakeOrder(originOrder));        
-//         }
-
-//     }
-
-//     //update the array with remove product
-//     const removeBake = (prevOrder, originOrder) => {
-//         let id = prevOrder.id;
-//         //get index of splicing 
-//         const array = originOrder.find((originOrder) => originOrder.id === id);
-//         const index = originOrder.indexOf(array);
-//         // console.log(index);
-        
-//         //splicing to update amount
-//         originOrder.splice(index, 1);
-//     }
+// function MydModalWithGrid(props) {
 //     return (
-//         <>
-//         <div className="cart-title">
-//             <div className="first-col">
-//                 {/* <h3 className="title-name">Product Name</h3> */}
-//                 <div className="name-display">
-//                     <img className="title-name-image" alt="productimage" src={orderdetails.orderdetails.image} />
-//                     <h4 className="title-name-name">{orderdetails.orderdetails.title}</h4>
-//                 </div>
+//         <div>
+//             <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+//                 <Modal.Header closeButton>
+//                 <Modal.Title id="contained-modal-title-vcenter">
+//                     Using Grid in Modal
+//                 </Modal.Title>
+//                 </Modal.Header>
+//                 <Modal.Body>
+//                 <Container>
+//                     <Row className="show-grid">
+//                     <Col xs={12} md={8}>
+//                         <code>.col-xs-12 .col-md-8</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     </Row>
+        
+//                     <Row className="show-grid">
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     </Row>
+//                 </Container>
+//                 </Modal.Body>
+//                 <Modal.Footer>
+//                 <Button onClick={props.onHide}>Close</Button>
+//                 </Modal.Footer>
+//             </Modal>
 //             </div>
-//             <div className="second-col">
-//                 {/* <h3 className="title-price">Unit Price</h3> */}
-//                 <h4 className="title-price-price">${orderdetails.orderdetails.price}</h4>
-//             </div>
-//             <div className="third-col">
-//                 {/* <h3 className="title-quantity">Quantity</h3> */}
-//                 <div className="input-group title-qtity">
-//                     <button className="down" onClick = {() => 
-//                         {
-//                             if (updateAmount > 1) {
-//                                 setUpdateAmount(updateAmount - 1);
-//                             }
-//                             decreaseBakeOrder(updateAmount, bakeOrder, newBakeOrder);
-//                             // console.log(newBakeOrder);
-//                         }}>
-//                         -
-//                     </button>
-//                         <input type="text" id="myNumber" className="form-control input-number" value={updateAmount} />
-//                     <button className="up"onClick = {() => 
-//                         {
-//                             if (updateAmount < 10) {
-//                                 setUpdateAmount(updateAmount + 1);
-//                             }
-//                             increaseBakeOrder(updateAmount, bakeOrder, newBakeOrder);
-//                             // console.log(newBakeOrder);
-//                         }}>
-//                         +
-//                     </button>
-//                 </div>
-//             </div>
-//             <div className="fourth-col">
-//                 <h3 className="title-total">Total</h3>
-//                 <p className="title-alltotal">${orderdetails.orderdetails.price * updateAmount}</p>
-//                 <p className="title-delete">
-//                     <Link className="total-delete" onClick={() => removeBake(bakeOrder, newBakeOrder)}>
-//                         <TiDeleteOutline  className="total-icon"/>
-//                     </Link>
-//                 </p>
-//             </div>
-//         </div> 
-//         <div className="third-button">
-//             <Link to="/products">
-//                 <button className="button button4">
-//                     <p className="button-name">Continue Shoping</p>
-//                 </button>
-//             </Link>
-            
-//         </div>
-//         </>
-//     )
-// }
+//     );
+//   }
+
+//   export  default function Test() {
+//     const [modalShow, setModalShow] = useState(false);
+  
+//     return (
+//         <div className="services" style={{marginTop: 200}}>
+//       <ButtonToolbar>
+//         <Button variant="primary" onClick={() => setModalShow(true)}>
+//           Launch modal with grid
+//         </Button>
+  
+//         {/* <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} /> */}
+//         <Modal aria-labelledby="contained-modal-title-vcenter">
+//                 <Modal.Header closeButton>
+//                 <Modal.Title id="contained-modal-title-vcenter">
+//                     Using Grid in Modal
+//                 </Modal.Title>
+//                 </Modal.Header>
+//                 <Modal.Body>
+//                 <Container>
+//                     <Row className="show-grid">
+//                     <Col xs={12} md={8}>
+//                         <code>.col-xs-12 .col-md-8</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     </Row>
+        
+//                     <Row className="show-grid">
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     <Col xs={6} md={4}>
+//                         <code>.col-xs-6 .col-md-4</code>
+//                     </Col>
+//                     </Row>
+//                 </Container>
+//                 </Modal.Body>
+//                 <Modal.Footer>
+//                 {/* <Button onClick={props.onHide}>Close</Button> */}
+//                 </Modal.Footer>
+//             </Modal>
+//       </ButtonToolbar>
+//       </div>
+//     );
+//   }
+

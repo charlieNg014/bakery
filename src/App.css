@@ -16,6 +16,15 @@ img {
     margin-left: -30px;
 }
 
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%;
+}
+
 .navbar-toggler {
     padding: .25rem .75rem;
     font-size: 1.25rem;
@@ -35,15 +44,29 @@ img {
     line-height: inherit;
     white-space: nowrap;
     margin-left: 50px;
+    width: 20%;
+    text-align: center;
 }
 
 .navbar-collapse {
     margin-left: 250px;
+    margin-left: 0;
+    text-align: center;
+    width: 60%;
 }
 
 .nav-link {
     margin: 0 36px auto;
     font-size: 20px;
+}
+
+.navbar-carticon {
+    width: 20%;
+    text-align: center;
+}
+
+a.nav-item.nav-link {
+    text-align: center;
 }
 /* navbar ends  */
 
@@ -1416,9 +1439,92 @@ input#myNumber {
     }
 
 }
-
-
 /* shopping cart ends  */
+
+/* view cart on navbar start*/
+.services {
+    padding: 0px;
+}
+.services.navbar-cart {
+    height: 100%;
+}
+
+.text {
+    margin-bottom: 222px;
+}
+
+p.subtotal {
+    text-align: left;
+    margin-left: 35px;
+    font-family: auto;
+    /* height: 15%; */
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.button-display.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 15%;
+}
+
+p.text-display {
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.text-empty {
+    height: 85%;
+}
+
+p.text-display-empty {
+    font-family: cursive;
+    padding-top: 100px;
+    font-size: 25px;
+}
+
+.button-display-empty.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+
+.navcart.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+img.navcart-image-display {
+    height: 60px;
+}
+
+.col-md-7.navcart-details {
+    text-align: left;
+}
+
+h3.navcart-details-title {
+    font-family: monospace;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h6.navcart-details-qty {
+    font-family: initial;
+    font-size: large;
+}
+
+h5.navcart-details-price {
+    color: chocolate;
+}
+
+/* view cart on navbar ends  */
 
 /* tablets  */
 @media screen and (max-width: 768px) {
