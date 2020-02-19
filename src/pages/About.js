@@ -16,7 +16,7 @@ export default class About extends Component {
             <div className="services" style={{padding: 0}}>
                 <div className="services about">
                     <div className="about-top">
-                        <Link to="/">
+                        <Link className="abouttitle" to="/">
                             <h4 className="about-title">Home ></h4>
                         </Link>
                         <h6 className="about-banner">About Us</h6>

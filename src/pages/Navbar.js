@@ -63,12 +63,12 @@ export default function Navbar (){
                     <img src={logo} alt="mainlogo" style={{height: 65, width: 85}} />
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" onClick={setNavbarOpen}>
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" onClick = {isNavbarOpen ===  false ? setNavbarOpen : setNavbarClose}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={isNavbarOpen ?  "show-nav" : "collapse navbar-collapse"}  id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                    <Link className="nav-item nav-link active" to="/" onClick={setNavbarClose, setModelClose}>Home <span className="sr-only">(current)</span></Link>
+                    <Link className="nav-item nav-link active" to="/" onClick={isNavbarOpen ===  true ? setNavbarClose : "", setModelClose}>Home <span className="sr-only">(current)</span></Link>
                     <Link className="nav-item nav-link" to="/about" onClick={setNavbarClose, setModelClose}>About</Link>
                     <Link className="nav-item nav-link" to="/products"  onClick={setNavbarClose, setModelClose}>Products</Link>
                     <Link className="nav-item nav-link" to="/shoppingcart"  onClick={setNavbarClose, setModelClose}>Shopping Cart</Link>
@@ -124,12 +124,12 @@ export default function Navbar (){
                                         <p className="text-display-empty"> Sorry, your cart is already empty</p>
                                     </div>
                                     <div className="button-display-empty row">
-                                        <Link className="col-md-6 left-button" to = "/shoppingcart" onClick={setModelClose}>
-                                            <Button className="viewcart-button" variant="contained" color="primary">View Cart</Button>
+                                        <Link className="col-md-12 left-button" to = "/products" onClick={setModelClose}>
+                                            <Button className="viewcart-button" variant="contained" color="primary">Shop Now</Button>
                                         </Link>
-                                        <Link className="col-md-6 right-button" to="/checkout" onClick={setModelClose}>
+                                        {/* <Link className="col-md-6 right-button" to="/checkout" onClick={setModelClose}>
                                             <Button className="checkout-button" variant="contained" color="secondary">Checkout</Button>
-                                        </Link>
+                                        </Link> */}
                                     </div>
                             </div>}
                     </Modal>

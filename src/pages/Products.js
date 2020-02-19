@@ -12,7 +12,7 @@ export default class Products extends Component {
             <div className="services">
                 <div className="product">
                     <div className="about-top">
-                        <Link to="/">
+                        <Link className="abouttitle" to="/">
                             <h4 className="about-title">Home ></h4>
                         </Link>
                         <h6 className="about-banner">Shop Page</h6>

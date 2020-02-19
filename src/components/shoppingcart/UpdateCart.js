@@ -173,21 +173,21 @@ export default function UpdateCart() {
                 <hr className="filter-line"/>
                 <div className="cart-displayforphone">
                     <div className="cart-title">
-                        <div className="first-col">
+                        <div className="first-col" style={{width: "30%"}}>
                             <h3 className="title-name">Product Name</h3>
                         </div>
-                        <div className="second-col">
+                        <div className="second-col" style={{width: "25%"}}>
                             <h3 className="title-price">Unit Price</h3>
                         </div>
-                        <div className="third-col">
+                        <div className="third-col" style={{width: "25%"}}>
                             <h3 className="title-total">Size</h3>
                         </div>
-                        <div className="fourth-col">
+                        <div className="fourth-col" style={{width: "20%"}}>
                             <h3 className="title-quantity">Quantity</h3>
                         </div>
-                        <div className="fifth-col">
+                        {/* <div className="fifth-col">
                             <h3 className="title-total">Total</h3>
-                        </div>
+                        </div> */}
                     </div>
                     {((length === 0) || (orginLength > length)) ? 
                     newBakeOrder.map((item) => {
@@ -207,11 +207,11 @@ export default function UpdateCart() {
                                 <div className="second-col">
                                     <h4 className="title-price-price">${item.price}</h4>
                                 </div>
-                                <div className="third-col">
+                                <div className="third-col" style={{marginLeft: 86}}>
                                     <h4 className="title-size">{item.requestedSize}</h4>
                                 </div>
                                 <div className="fourth-col">
-                                    <div className="input-group title-qtity">
+                                    <div className="input-group title-qtity" style={{marginLeft: 42}}>
                                     <button className="down" onClick={() => {
                                         if (updateAmount > 1) {
                                             decreaseBakeOrder(updateAmount, item, newBakeOrder, updatedBakeOrder);
@@ -260,11 +260,11 @@ export default function UpdateCart() {
                                 <div className="second-col">
                                     <h4 className="title-price-price">${item.price}</h4>
                                 </div>
-                                <div className="third-col">
+                                <div className="third-col" style={{marginLeft: 86}}>
                                     <h4 className="title-size">{item.requestedSize}</h4>
                                 </div>
                                 <div className="fourth-col">
-                                    <div className="input-group title-qtity">
+                                    <div className="input-group title-qtity" style={{marginLeft: 42}}>
                                     <button className="down" onClick={() => {
                                         if (updateAmount > 1) {
                                             decreaseBakeOrder(updateAmount, item, newBakeOrder, updatedBakeOrder);
