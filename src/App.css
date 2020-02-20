@@ -219,88 +219,65 @@ p.subtitle {
 /* story ends */
 
 /* menu starts  */
-.menu-image {
-    width: 503px;
-    height: 600px;
-    margin-left: -15px;
-}
-
-img.item-image {
-    width: 65px;
-}
-
-.row.menu {
-    background-color: lightgray;
-    padding: 0rem 0;
-}
-
-.banner {
-    margin-top: 60px;
-}
-
-.row.menu-display {
+.menu.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-right: 0px;
     width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-.name {
-    text-align: left;
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    margin-top: 14px;
+.menuinfo.col-md-9 {
+    padding: 0px;
+    background-color: lightslategray;
 }
 
-.info {
-    text-align: left;
-    margin-left: 40px;
-    font-weight: 300;
-    font-weight: 400;
-    font-style: italic;
-    color: floralwhite;
+.menuinfo-line-top {
+    border-top: 1px solid cornsilk;
+    margin: 60px;
+    margin-bottom: -10px;
 }
 
-p.price {
-    font-size: 20px;
-    color: firebrick;
-    font-weight: 900;
-    margin-top: 13px;
+.menuinfo-line-bottom {
+    border-top: 1px solid cornsilk;
+    margin: 60px;
+    margin-top: 15px;
+}
+
+li.listdetails {
+    width: 100%;
+}
+
+a.filter-list {
+    width: 25%;
 }
 
 @media screen and (max-width: 480px) {
-    .menu-image {
-        display: none;
+    ul.typelist {
+        justify-content: center;
+        display: grid;
     }
-    .row.menu {
+    li.listdetails {
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    ul.typelist {
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-wrap: wrap;
-        margin-right: 0;
-        margin-left: 0;
-        width: 100%;
+        justify-content: space-around;
     }
 
-    span.menu-icon {
-        width: 100%;
-        margin-left: -35px;
-    }
-
-    h6.name {
-        text-align: center;
-        margin-left: -20px;
-        margin-bottom: 15px;
-    }
-
-    p.price {
-        margin-left: 28px;
-    }
-
-    p.info {
-        text-align: center;
-        margin-bottom: 15px;
+    li.listdetails {
+        display: block;
     }
 
 }
+
 /* end menu  */
 
 /* contact starts  */
@@ -1353,7 +1330,7 @@ input#myNumber {
         display: block;
     }
 
-    .first-col, .second-col, .third-col, .fourth-col {
+    .first-col, .second-col, .third-col, .fourth-col, .fifth-col {
         text-align: center;
         width: 100%;
     }
@@ -1445,6 +1422,63 @@ input#myNumber {
         margin-top: 40px;
 
     }
+
+@media screen and (max-width: 480px) {
+    .cart-title {
+        display: flex;
+    }
+
+    .first-col {
+        margin-top: 20px;
+        margin-right: 100px;
+    }
+
+    .second-col {
+        margin-right: 60px;
+    }
+
+    .third-col {
+        margin-right: 50px;
+    }
+
+    img.title-name-image {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    h4.title-price-price {
+        margin-top: 67px;
+        color: brown;
+        margin-left: -38px;
+    }
+
+    h4.title-size {
+        margin-top: 68px;
+        color: burlywood;
+        margin-left: -23px;
+    }
+
+    .input-group.title-qtity {
+        text-align: left;
+        margin-left: 16px;
+        margin-top: 58px;
+    }
+
+    p.title-alltotal {
+        font-size: 20px;
+        margin-top: 20px;
+        font-weight: bold;
+        margin-top: 66px;
+        margin-left: 43px;
+    }
+
+    svg.total-icon {
+        width: 50px;
+        height: 40px;
+        margin-top: 62px;
+        margin-left: 10px;
+    }
+}
 
 }
 /* shopping cart ends  */

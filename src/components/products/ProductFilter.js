@@ -7,7 +7,6 @@ import {filteredBake} from "../../redux"
 
 export default function ProductFilter () {
     //define state 
-    
     const [bakeData] = useState(bakeStore);
     const getUnique = (item, value) => {
         return [...new Set(item.map(item => item[value]))]

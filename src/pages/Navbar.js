@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import {MdClose} from "react-icons/md"
 import {useSelector} from 'react-redux'
 import {Button} from "@material-ui/core"
+import transitions from '@material-ui/core/styles/transitions';
 
 const customStyles = {
     content : {
@@ -38,7 +39,7 @@ export default function Navbar (){
         setModalState(true);
     }
 
-    const setModelClose = () => {
+    const setModalClose = () => {
         setModalState(false);
     }
      
@@ -63,26 +64,26 @@ export default function Navbar (){
                     <img src={logo} alt="mainlogo" style={{height: 65, width: 85}} />
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" onClick = {isNavbarOpen ===  false ? setNavbarOpen : setNavbarClose}>
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" onClick = {setNavbarOpen}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={isNavbarOpen ?  "show-nav" : "collapse navbar-collapse"}  id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                    <Link className="nav-item nav-link active" to="/" onClick={isNavbarOpen ===  true ? setNavbarClose : "", setModelClose}>Home <span className="sr-only">(current)</span></Link>
-                    <Link className="nav-item nav-link" to="/about" onClick={setNavbarClose, setModelClose}>About</Link>
-                    <Link className="nav-item nav-link" to="/products"  onClick={setNavbarClose, setModelClose}>Products</Link>
-                    <Link className="nav-item nav-link" to="/shoppingcart"  onClick={setNavbarClose, setModelClose}>Shopping Cart</Link>
-                    <Link className="nav-item nav-link" to="/contact"  onClick={setNavbarClose, setModelClose}>Contact</Link>
+                    <Link className="nav-item nav-link active" to="/" onClick={setNavbarClose}>Home <span className="sr-only">(current)</span></Link>
+                    <Link className="nav-item nav-link" to="/about" onClick={setNavbarClose}>About</Link>
+                    <Link className="nav-item nav-link" to="/products"  onClick={setNavbarClose}>Products</Link>
+                    <Link className="nav-item nav-link" to="/shoppingcart"  onClick={setNavbarClose}>Shopping Cart</Link>
+                    <Link className="nav-item nav-link" to="/contact"  onClick={setNavbarClose}>Contact</Link>
                     </div>
                 </div>
                 <div className="navbar-carticon">
                     <Link>
-                        <ShoppingCartSharp onClick={setModalOpen}/>
+                        <ShoppingCartSharp onClick={isModalOpen === false ? setModalOpen : setModalClose}/>
                     </Link>
                     <Modal
                         isOpen={isModalOpen}
                         // onAfterOpen={this.afterOpenModal}
-                        onRequestClose={setModelClose}
+                        onRequestClose={setModalClose}
                         style={customStyles}
                         contentLabel="Example Modal"
                         >
@@ -111,10 +112,10 @@ export default function Navbar (){
                                     <p className="subtotal">Sub Total: ${ Math.round(getSubTotal(finalOrder))}</p>
                                 </div>
                                 <div className="button-display row">
-                                    <Link className="col-md-6 left-button" to = "/shoppingcart" onClick={setModelClose}>
+                                    <Link className="col-md-6 left-button" to = "/shoppingcart" onClick={setModalClose}>
                                         <Button className="viewcart-button" variant="contained" color="primary">View Cart</Button>
                                     </Link>
-                                    <Link className="col-md-6 right-button" to="/checkout" onClick={setModelClose}>
+                                    <Link className="col-md-6 right-button" to="/checkout" onClick={setModalClose}>
                                         <Button className="checkout-button" variant="contained" color="secondary">Checkout</Button>
                                     </Link>
                                 </div>
@@ -124,7 +125,7 @@ export default function Navbar (){
                                         <p className="text-display-empty"> Sorry, your cart is already empty</p>
                                     </div>
                                     <div className="button-display-empty row">
-                                        <Link className="col-md-12 left-button" to = "/products" onClick={setModelClose}>
+                                        <Link className="col-md-12 left-button" to = "/products" onClick={setModalClose}>
                                             <Button className="viewcart-button" variant="contained" color="primary">Shop Now</Button>
                                         </Link>
                                         {/* <Link className="col-md-6 right-button" to="/checkout" onClick={setModelClose}>
