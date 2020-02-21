@@ -3,10 +3,10 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import ShoppingCartSharp from "@material-ui/icons/ShoppingCartSharp"
 import Modal from 'react-modal';
-import {MdClose} from "react-icons/md"
+// import {MdClose} from "react-icons/md"
 import {useSelector} from 'react-redux'
 import {Button} from "@material-ui/core"
-import transitions from '@material-ui/core/styles/transitions';
+// import transitions from '@material-ui/core/styles/transitions';
 
 const customStyles = {
     content : {

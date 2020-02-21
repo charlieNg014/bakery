@@ -2,20 +2,36 @@ import React, {useState} from 'react'
 import {MdCheckCircle} from "react-icons/md"
 import {bakeStore} from '../data'
 import {Link} from "react-router-dom"
+import {filteredBake} from "../redux"
+import {useDispatch, useSelector} from "react-redux"
+import ProductList from "./products/ProductList"
+import menuimage from "../images/menuimage.jpg"
 
 export default function Menu() {
-    //define state 
+    const dispatch = useDispatch();
     const [bakeData] = useState(bakeStore);
     const getUnique = (item, value) => {
         return [...new Set(item.map(item => item[value]))]
     }
 
-    //get unique types of bake
+    //get value for display
+    const bakeDisplay = useSelector(state => state.bakeFilter.updatedBakeArray);
+    console.log(bakeDisplay);
+
+    const handleChange = (event) => {
+        const value = event.target.value;
+        // console.log(value);
+
+        const filterBake = bakeData.filter((bakeData) => bakeData.type === value);
+        // console.log(filterBake);
+        dispatch(filteredBake(filterBake));
+    }
+
     let types = getUnique(bakeStore, 'type');
-    types = [...types];
+    types = ["All", ...types];
     types = types.map((item, index) => {
         return (
-            <Link  className="filter-list" value={item} key={index}>
+            <Link onClick={handleChange} className="filter-list" value={item} key={index}>
                <option>
                     {item}
                 </option> 
@@ -32,13 +48,28 @@ export default function Menu() {
                     <hr class="menuinfo-line-top"></hr>
                     <div className="menuinfo-typedisplay">
                         <ul className="typelist">
-                            <li className="listdetails" type = {types}>{types}</li>
+                            <li className="listdetails" type = {types} >{types}</li>
                         </ul>
                     </div>
                     <hr class="menuinfo-line-bottom"></hr>
-                </div>
+                        <div className="bakelist">
+                        <div className="bakelist-center">
+                        {bakeDisplay.length === 0 
+                            ? bakeData.map((item, index) => {
+                                return (
+                                    <ProductList key ={index} bakeList = {item} />
+                                )
+                            })
+                            : bakeDisplay.map((item, index) => {
+                                return (
+                                    <ProductList key ={index} bakeList = {item} />
+                                )
+                            })}
+                        </div>
+                        </div>
+                        </div>
                 <div className="menuimage col-md-3">
-                    image
+                <img className="imagedisplay" src={menuimage} alt="menuimage" />
                 </div>
             </div>
         </div>
