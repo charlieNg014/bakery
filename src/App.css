@@ -130,6 +130,11 @@ p.subtitle {
 .services {
     padding: 5rem 0;
   }
+
+section.services.service-center {
+    height: 390px;
+    padding-top: 40px;
+}
   
   .services {
     /* background: var(--darkGrey); */
@@ -306,7 +311,7 @@ img {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    height: 533px;
+    height: 580px;
 }
 
 .video {
@@ -369,7 +374,8 @@ button.detail-btn {
 }
 
 .col-md-6.contact-details {
-    margin-top: 0px;
+    margin-top: 0;
+    height: 580px;
 }
 
 .youtube {
@@ -544,6 +550,8 @@ div#navbarNavAltMarkup {
 .services.about {
     background-color: aliceblue;
     margin-top: 90px;
+    height: 220px;
+    padding-top: 33px;
 }
 
 .about-top {
@@ -711,8 +719,10 @@ img.display-image {
 
 /* product statrs  */
 .product {
+    height: 242px;
     margin-top: 90px;
     background-color: aliceblue;
+    padding-top: 33px;
 }
 
 
@@ -1541,6 +1551,10 @@ input#myNumber {
     height: 100%;
 }
 
+article.service {
+    margin: 0 30px;
+}
+
 .text {
     margin-bottom: 222px;
 }
@@ -1624,6 +1638,30 @@ h5.navcart-details-price {
     }
 }
 /* view cart on navbar ends  */
+
+/* carousel  starts */
+.item.row {
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+li.react-multi-carousel-item.react-multi-carousel-item--active {
+    margin-right: 0px;
+}
+
+.item-display {
+    margin-top: 100px;
+    margin-left: -60px;
+    justify-content: center;
+}
+
+li.react-multi-carousel-dot {
+    margin-left: 0px;
+    float: left;
+}
+
+/* carousel end  */
 
 /* tablets  */
 @media screen and (max-width: 768px) {

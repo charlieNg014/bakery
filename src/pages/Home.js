@@ -14,8 +14,8 @@ function Home() {
         <div>
             <StyledImage>
             <Banner title="Super Delicious Cake" subtitle="100% Natural, fresh baked goods">
-                <Link to="/booking" className="btn-primary" style={{backgroundColor: "peru"}}>
-                    Book Now
+                <Link to="/products" className="btn-primary" style={{backgroundColor: "peru"}}>
+                    Buy Now
                 </Link>
             </Banner>
             </StyledImage>

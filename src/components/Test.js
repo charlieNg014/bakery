@@ -1,54 +1,72 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: 300 + theme.spacing(3) * 2,
-  },
-  margin: {
-    height: theme.spacing(3),
-  },
-}));
+const review = [
+  {detail: "test 1", name: " Charlie"},
+  {detail: "test 2", name: " Duke"},
+  {detail: "test 3", name: " Jess"}
+]
 
-  const PrettoSlider = withStyles({
-    root: {
-      color: '#52af77',
-      height: 8,
-    },
-    thumb: {
-      height: 24,
-      width: 24,
-      backgroundColor: '#fff',
-      border: '2px solid currentColor',
-      marginTop: -8,
-      marginLeft: -12,
-      '&:focus,&:hover,&$active': {
-        boxShadow: 'inherit',
-      },
-    },
-    active: {},
-    valueLabel: {
-      left: 'calc(-50% + 4px)',
-    },
-    track: {
-      height: 8,
-      borderRadius: 4,
-    },
-    rail: {
-      height: 8,
-      borderRadius: 4,
-    },
-  })(Slider);
-
-  export default function Test() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root} style={{marginTop: 100, marginLeft: 100}}>
-        <Typography gutterBottom>pretto.fr</Typography>
-        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
-      </div>
-    );
-  }
+export default function Test() {
+  return (
+    <div className="services" style={{marginTop: 100, marginRight: 0}}>
+      <Carousel
+            additionalTransfrom={0}
+            arrows
+            autoPlaySpeed={10}
+            centerMode={false}
+            className=""
+            containerClass="container"
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            responsive={{
+              desktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1024
+                },
+                items: 1
+              },
+              mobile: {
+                breakpoint: {
+                  max: 464,
+                  min: 0
+                },
+                items: 1
+              },
+              tablet: {
+                breakpoint: {
+                  max: 1024,
+                  min: 464
+                },
+                items: 1
+              }
+            }}
+            showDots
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+          >
+      {review.map((item) => {
+        return (
+            <div className="item row" style={{marginLeft: -30, height: 300}}>
+                <div className="item-display col-md-12">
+                  <h3 className="review-detail">{item.detail}</h3>
+                  <hr className="filter-line" style={{width: "30%"}}/>
+                  <p className="review-name">{item.name}</p>
+                </div>
+            </div>
+        )
+          })}
+    </Carousel>
+    </div>
+        )
+}

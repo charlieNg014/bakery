@@ -147,7 +147,7 @@ export default function ShoppingCart() {
                 <div className="cart-sum">
                 <div className="sum-left">
                     <h4 className="left-title">
-                        Enter your code if you have one. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Enter your code if you have one. 
                     </h4>
                     <div className="title-code">
                         <input className="form-control coupon" type="text" placeholder="Enter you code here" />
