@@ -6,6 +6,7 @@ import getNewBakeOrderReducer from "./orderBake/orderBakeReducer"
 import getUpdateBakeOrderReducer from "./updateOrder/updateOrderReducer"
 import getFinalBakeOrderReducer from "./finalOrder/finalOrderReducer"
 import getUpdatedProductDetailsReducer from "./updateProductDetails/updateProductDetailsReducer"
+import priceFilterReducer from './filterPrice/filterPriceReducer'
 
 const rootReducer = combineReducers({
     data: dataReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     getUpdatedProductDetails: getUpdatedProductDetailsReducer,
     getNewBakeOrder: getNewBakeOrderReducer, 
     getUpdateBakeOrder: getUpdateBakeOrderReducer, 
-    getFinalBakeOrder: getFinalBakeOrderReducer
+    getFinalBakeOrder: getFinalBakeOrderReducer, 
+    priceFilter: priceFilterReducer
 })
 
 export default rootReducer;

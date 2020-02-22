@@ -1,95 +1,54 @@
-// import React, {useState} from 'react'
-// import Modal from 'react-modal';
-// import {Button, Row, Col, Container, ButtonToolbar} from "react-bootstrap"
+import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
 
-// function MydModalWithGrid(props) {
-//     return (
-//         <div>
-//             <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-//                 <Modal.Header closeButton>
-//                 <Modal.Title id="contained-modal-title-vcenter">
-//                     Using Grid in Modal
-//                 </Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                 <Container>
-//                     <Row className="show-grid">
-//                     <Col xs={12} md={8}>
-//                         <code>.col-xs-12 .col-md-8</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     </Row>
-        
-//                     <Row className="show-grid">
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     </Row>
-//                 </Container>
-//                 </Modal.Body>
-//                 <Modal.Footer>
-//                 <Button onClick={props.onHide}>Close</Button>
-//                 </Modal.Footer>
-//             </Modal>
-//             </div>
-//     );
-//   }
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: 300 + theme.spacing(3) * 2,
+  },
+  margin: {
+    height: theme.spacing(3),
+  },
+}));
 
-//   export  default function Test() {
-//     const [modalShow, setModalShow] = useState(false);
+  const PrettoSlider = withStyles({
+    root: {
+      color: '#52af77',
+      height: 8,
+    },
+    thumb: {
+      height: 24,
+      width: 24,
+      backgroundColor: '#fff',
+      border: '2px solid currentColor',
+      marginTop: -8,
+      marginLeft: -12,
+      '&:focus,&:hover,&$active': {
+        boxShadow: 'inherit',
+      },
+    },
+    active: {},
+    valueLabel: {
+      left: 'calc(-50% + 4px)',
+    },
+    track: {
+      height: 8,
+      borderRadius: 4,
+    },
+    rail: {
+      height: 8,
+      borderRadius: 4,
+    },
+  })(Slider);
+
+  export default function Test() {
+    const classes = useStyles();
   
-//     return (
-//         <div className="services" style={{marginTop: 200}}>
-//       <ButtonToolbar>
-//         <Button variant="primary" onClick={() => setModalShow(true)}>
-//           Launch modal with grid
-//         </Button>
-  
-//         {/* <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} /> */}
-//         <Modal aria-labelledby="contained-modal-title-vcenter">
-//                 <Modal.Header closeButton>
-//                 <Modal.Title id="contained-modal-title-vcenter">
-//                     Using Grid in Modal
-//                 </Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                 <Container>
-//                     <Row className="show-grid">
-//                     <Col xs={12} md={8}>
-//                         <code>.col-xs-12 .col-md-8</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     </Row>
-        
-//                     <Row className="show-grid">
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     <Col xs={6} md={4}>
-//                         <code>.col-xs-6 .col-md-4</code>
-//                     </Col>
-//                     </Row>
-//                 </Container>
-//                 </Modal.Body>
-//                 <Modal.Footer>
-//                 {/* <Button onClick={props.onHide}>Close</Button> */}
-//                 </Modal.Footer>
-//             </Modal>
-//       </ButtonToolbar>
-//       </div>
-//     );
-//   }
-
+    return (
+      <div className={classes.root} style={{marginTop: 100, marginLeft: 100}}>
+        <Typography gutterBottom>pretto.fr</Typography>
+        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+      </div>
+    );
+  }

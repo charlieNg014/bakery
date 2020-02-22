@@ -1,0 +1,1 @@
+export const PRICE_FILTER = "PRICE_FILTER";

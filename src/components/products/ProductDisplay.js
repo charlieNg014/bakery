@@ -9,8 +9,11 @@ export default function ProductDisplay() {
     // console.log(bakeData);
 
     //getting data from store 
-    const updatedBakeArray = useSelector(state => state.bakeFilter.updatedBakeArray);
-    // console.log(updatedBakeArray);
+    const updatedTypes = useSelector(state => state.bakeFilter.updatedBakeArray);
+    console.log(updatedTypes);
+
+    const updatedPrice = useSelector(state => state.priceFilter.updatedPriceArray);
+    console.log(updatedPrice);
 
     //display error page if the search is undefined 
     if (bakeData.length === 0) {
@@ -24,17 +27,17 @@ export default function ProductDisplay() {
         <div className="services">
             <div className="bakelist">
                 <div className="bakelist-center">
-                    {updatedBakeArray.length === 0 ? 
-                        bakeData.map((item, index) => {
+                    {updatedTypes.length === 0 ? 
+                        updatedPrice.map((item, index) => {
                             return (
                                 <ProductList key ={index} bakeList = {item} />
                             )
-                        }) :
-                        updatedBakeArray.map((item, index)  => {
+                        }) 
+                        : updatedTypes.map((item, index)  => {
                             return (
                                 <ProductList key = {index}  bakeList = {item} />
                             )
-                        })
+                        }) 
                 }
                 </div>
             </div>
