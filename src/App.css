@@ -261,6 +261,12 @@ a.filter-list {
 img.imagedisplay {
     height: 100%;
     width: 100%;
+    margin-left: 0px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
 }
 
 @media screen and (max-width: 480px) {
@@ -298,10 +304,11 @@ img.imagedisplay {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     height: 533px;
 }
+
 .video {
     background-image: url(./images/videoimage.jpg);
     height: 450px;
@@ -378,6 +385,13 @@ button.detail-btn {
 .col-md-6.video {
     height: 100%;
 }
+
+.contact-details {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    height: 533px;
+}
+
 
 @media screen and (max-width: 480px) {
     .row.contact {
