@@ -88,8 +88,8 @@ export default function ProductDetails() {
                     <p className="details-desc">{productDetails.info}</p> 
                 </div>
                 <div className="details-furtherinfo">
-                    <p className="details-avai"><strong>AVAILABILITY:</strong>true or false here</p>
-                    <p className="details-category"><strong> CATEGORIES:</strong>{productDetails.type}</p>
+                    <p className="details-avai"><strong>AVAILABILITY: </strong>{productDetails.availability === true ? "Yes" : "No"}</p>
+                    <p className="details-category"><strong> CATEGORIES: </strong>{productDetails.type}</p>
                 </div>
                 <hr className="details-"/>
                 <div className="details-button"> 
@@ -141,9 +141,9 @@ export default function ProductDetails() {
                 </div>
                 <div className={isDescription === true ? "additionalInfo-details-desc" : "additionalInfo-details-desc-hide"}>
                     <h2 className="addInfo-title">Ingredients:</h2>
-                    <p className="addInfo-details">infor about ingredients goes here</p>
+                    <p className="addInfo-details">{productDetails.ingredient}</p>
                     <h2 className="addInfo-title" style={{marginTop: 30}}>Preparation:</h2>
-                    <p className="addInfo-details">infor about preparation goes here</p>
+                    <p className="addInfo-details">{productDetails.preparation}</p>
                 </div>
 
                 <div className= {isReview === true ? "additionalInfo-details-review" : "additionalInfo-details-review-hide"}>
